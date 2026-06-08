@@ -430,4 +430,3 @@ export default function EditService({ service, onBack }) {
     </div>
   );
 }
-export { AddMoreService };

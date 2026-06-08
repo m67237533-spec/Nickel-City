@@ -8,12 +8,28 @@ const initialServices = [
     title: "Lawn Mowing",
     commission: 20,
     image: "https://picsum.photos/seed/snow/400/200",
+    ranges: [
+      {
+        state: "California",
+        cities: ["Los Angeles"],
+        areaRange: "100-500 sq ft",
+        price: "$100",
+      },
+    ],
   },
   {
     id: 2,
     title: "Snow Removal",
     commission: 20,
     image: "https://picsum.photos/seed/lawn/400/200",
+    ranges: [
+      {
+        state: "Texas",
+        cities: ["Houston"],
+        areaRange: "200-800 sq ft",
+        price: "$150",
+      },
+    ],
   },
 ];
 
