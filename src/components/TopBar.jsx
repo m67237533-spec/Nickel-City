@@ -1,26 +1,34 @@
-export default function TopBar() {
+import React from "react";
+
+export default function TopBar({ onNotificationClick, onProfileClick, adminName, adminEmail }) {
   return (
     <div className="flex justify-between items-center mb-7">
-      <h1 className="text-3xl font-bold text-slate-800 m-0">
+      {/* Welcome Heading */}
+      {/* <h1 className="text-[32px] font-bold text-[#222] tracking-tight m-0">
         Welcome Back, Admin!
-      </h1>
+      </h1> */}
+      
       <div className="flex items-center gap-4">
-        {/* Bell */}
-        <button
-          className="w-10 h-10 rounded-full border-none flex items-center justify-center cursor-pointer text-lg text-white"
-          style={{ background: "var(--Primary-Color, #1866B4)" }}
+        {/* 🔥 Notification Bell (Uncommented & Connected) */}
+        {/* <button
+          onClick={onNotificationClick}
+          className="w-10 h-10 rounded-xl border-none flex items-center justify-center cursor-pointer text-lg text-[#1866B4] bg-[#EEF4FB] hover:bg-blue-100 transition-colors"
         >
           🔔
-        </button>
-        {/* Avatar */}
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full bg-slate-300 flex items-center justify-center text-xl">
+        </button> */}
+
+        {/* 🔥 Avatar Card (Connected to Profile Modal Click) */}
+        <div 
+          onClick={onProfileClick}
+          className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-100 cursor-pointer hover:shadow transition-all"
+        >
+          {/* <div className="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-xl overflow-hidden">
             👨‍💼
           </div>
-          <div>
-            <div className="text-sm font-semibold text-slate-800">Admin</div>
-            <div className="text-xs text-gray-400">admin.admin@gmail.com</div>
-          </div>
+          <div className="text-left">
+            <div className="text-sm font-bold text-slate-800">{adminName || "Admin"}</div>
+            <div className="text-[10px] text-gray-400">{adminEmail || "admin.admin@gmail.com"}</div>
+          </div> */}
         </div>
       </div>
     </div>
