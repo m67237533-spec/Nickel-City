@@ -106,7 +106,7 @@ export default function ContractorManagement() {
               <col style={{ width: "9%" }} />
             </colgroup>
             <thead>
-              <tr className="border-b border-slate-100 bg-[#f8fafc]">
+              <tr className="border-b border-slate-100 bg-[#fff]">
                 {columns.map(col => (
                   <th key={col} className="text-left px-4 py-3.5 text-xs font-semibold text-slate-600 select-none">
                     <div className="flex items-center gap-1.5">

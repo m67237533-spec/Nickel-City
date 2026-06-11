@@ -54,18 +54,17 @@ function StatCard({ label, value, bg, emoji }) {
 
 export default function DashboardPage() {
   return (
-    <div className="p-8">
-      <div className="mb-6">
+    <div className="pt-2 px-8">
+      <div className="mb-2">
         <TopBar />
       </div>
       
-      {/* Dashboard Heading - Updated to font-extrabold */}
-      <h2 className="text-xl font-extrabold text-slate-900 mb-6 text-left">
+      <h2 className="text-xl font-extrabold text-slate-900 mb-4 text-left">
         Dashboard
       </h2>
 
       {/* Stat Cards */}
-      <div className="flex gap-4 flex-wrap mb-8">
+      <div className="flex gap-4 flex-wrap mb-6">
         {stats.map(s => <StatCard key={s.label} {...s} />)}
       </div>
 
