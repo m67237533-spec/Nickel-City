@@ -22,6 +22,7 @@ export default function UserManagement() {
   const [users, setUsers] = useState(initialUsers);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const filtered = users.filter(u => {
     const matchSearch =
@@ -30,11 +31,10 @@ export default function UserManagement() {
     const matchFilter = filter === "All" || u.status === filter;
     return matchSearch && matchFilter;
   });
-  const [selectedUser, setSelectedUser] = useState(null);
 
-if (selectedUser) {
-  return <UserDetail user={selectedUser} onBack={() => setSelectedUser(null)} />;
-}
+  if (selectedUser) {
+    return <UserDetail user={selectedUser} onBack={() => setSelectedUser(null)} />;
+  }
 
   const toggleStatus = (id) => {
     setUsers(prev =>
@@ -45,15 +45,14 @@ if (selectedUser) {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-6">
       <TopBar />
 
       {/* Header */}
       <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
         <h2 className="text-xl font-semibold text-slate-800">User Management</h2>
         <div className="flex items-center gap-3">
-          {/* Search */}
-          <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-white w-56">
+          <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-white w-52">
             <span className="text-gray-400 text-sm">🔍</span>
             <input
               type="text"
@@ -63,7 +62,6 @@ if (selectedUser) {
               className="text-sm outline-none border-none w-full text-slate-700 placeholder-gray-400"
             />
           </div>
-          {/* Filter */}
           <select
             value={filter}
             onChange={e => setFilter(e.target.value)}
@@ -77,12 +75,22 @@ if (selectedUser) {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-x-auto">
-        <table className="w-full text-sm">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <table className="w-full table-fixed text-xs">
+          <colgroup>
+            <col style={{ width: "14%" }} />
+            <col style={{ width: "17%" }} />
+            <col style={{ width: "11%" }} />
+            <col style={{ width: "10%" }} />
+            <col style={{ width: "9%" }} />
+            <col style={{ width: "9%" }} />
+            <col style={{ width: "18%" }} />
+            <col style={{ width: "9%" }} />
+          </colgroup>
           <thead>
-            <tr className="border-b border-gray-100">
+            <tr className="border-b border-gray-100 bg-gray-50/50">
               {columns.map(col => (
-                <th key={col} className="text-left px-4 py-3 text-xs font-semibold text-slate-600 whitespace-nowrap">
+                <th key={col} className="text-left px-3 py-3 text-xs font-semibold text-slate-600">
                   {col} {col !== "Status" && <span className="text-gray-300">↕</span>}
                 </th>
               ))}
@@ -90,31 +98,31 @@ if (selectedUser) {
           </thead>
           <tbody>
             {filtered.map((user, index) => (
-             <tr
-  key={user.id}
-  onClick={() => setSelectedUser(user)}
-  className={`border-b border-gray-50 hover:bg-blue-50/30 transition-colors cursor-pointer ${index % 2 === 0 ? "bg-white" : "bg-gray-50/30"}`}
->
+              <tr
+                key={user.id}
+                onClick={() => setSelectedUser(user)}
+                className={`border-b border-gray-50 hover:bg-blue-50/30 transition-colors cursor-pointer ${index % 2 === 0 ? "bg-white" : "bg-gray-50/30"}`}
+              >
                 {/* Name */}
-                <td className="px-4 py-3 whitespace-nowrap">
-                  <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-xs flex-shrink-0">
+                <td className="px-3 py-3">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center text-xs flex-shrink-0">
                       👤
                     </div>
-                    <span className="text-slate-700 font-medium">{user.name}</span>
+                    <span className="text-slate-700 font-medium truncate">{user.name}</span>
                   </div>
                 </td>
-                <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{user.email}</td>
-                <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{user.phone}</td>
-                <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{user.country}</td>
-                <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{user.state}</td>
-                <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{user.city}</td>
-                <td className="px-4 py-3 text-slate-600 max-w-[180px] truncate">{user.address}</td>
+                <td className="px-3 py-3 text-slate-600 truncate">{user.email}</td>
+                <td className="px-3 py-3 text-slate-600 truncate">{user.phone}</td>
+                <td className="px-3 py-3 text-slate-600 truncate">{user.country}</td>
+                <td className="px-3 py-3 text-slate-600 truncate">{user.state}</td>
+                <td className="px-3 py-3 text-slate-600 truncate">{user.city}</td>
+                <td className="px-3 py-3 text-slate-600 truncate">{user.address}</td>
 
                 {/* Status Toggle Button */}
-                <td className="px-4 py-3 whitespace-nowrap">
+                <td className="px-3 py-3">
                   <button
-                    onClick={() => toggleStatus(user.id)}
+                    onClick={(e) => { e.stopPropagation(); toggleStatus(user.id); }}
                     className={`px-3 py-1 rounded-full text-xs font-semibold text-white border-none cursor-pointer transition-colors ${
                       user.status === "Block" ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"
                     }`}
