@@ -1,6 +1,8 @@
 import TopBar from "../components/TopBar";
 import { useState } from "react";
+// Dono files ko alag-alag import kar liya gaya hai
 import EditService from "./EditService";
+import EditSnowRemoval from "./EditSnowRemoval";
 
 const initialServices = [
   {
@@ -36,8 +38,23 @@ const initialServices = [
 export default function ServiceManagement() {
   const [editingService, setEditingService] = useState(null);
 
+  // Dynamic Routing Logic bina router package ke
   if (editingService) {
-    return <EditService service={editingService} onBack={() => setEditingService(null)} />;
+    if (editingService.title === "Snow Removal") {
+      return (
+        <EditSnowRemoval 
+          service={editingService} 
+          onBack={() => setEditingService(null)} 
+        />
+      );
+    } else {
+      return (
+        <EditService 
+          service={editingService} 
+          onBack={() => setEditingService(null)} 
+        />
+      );
+    }
   }
 
   return (
