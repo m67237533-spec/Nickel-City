@@ -17,7 +17,7 @@ export default function Sidebar({ active, setActive, onLogoutClick }) {
       <div className="flex justify-center pt-6 pb-6">
         <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg">
           <img
-            src="/logo.png"
+            src="/images/Logo.jpg"
             alt="Logo"
             className="w-20 h-20 object-contain"
           />

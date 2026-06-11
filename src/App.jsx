@@ -30,7 +30,7 @@ export default function App() {
     name: "Admin Admin",
     email: "admin.admin@gmail.com",
     phone: "+0123456789",
-    avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=80&q=80"
+    avatar: "images/profile.jpg",
   });
 
   const completedPages = [
@@ -55,28 +55,33 @@ export default function App() {
       
       <main className="flex-1 pl-[250px] overflow-y-auto">
         {!["Notifications", "Change Password", "Terms & Conditions", "Privacy Policy", "About Us"].includes(active) && (
-          <div className="p-6 pb-2 flex justify-between items-center">
-            <h1 className="text-[32px] font-bold text-[#222] tracking-tight">Welcome Back, Admin!</h1>
-            <div className="flex items-center gap-4">
-              <button 
-                onClick={() => { setPreviousActive(active); setActive("Notifications"); }} 
-                className="w-10 h-10 rounded-xl flex items-center justify-center border-none bg-[#EEF4FB] text-[#1866B4] text-lg cursor-pointer hover:bg-blue-100 transition-colors"
-              >
-                🔔
-              </button>
-              
-              <div 
-                onClick={() => { setPreviousActive(active); setActive("Profile"); }} 
-                className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-100 cursor-pointer hover:border-gray-200 transition-colors"
-              >
-                <img src={adminData.avatar} className="w-9 h-9 rounded-xl object-cover" alt="Admin" />
-                <div className="text-left">
-                  <h4 className="font-bold text-xs text-slate-800">{adminData.name}</h4>
-                  <p className="text-[10px] text-gray-400">{adminData.email}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="p-6 pb-2 flex justify-between items-center">
+  <h1 className="text-[45px] font-bold text-[#222] tracking-tight">Welcome Back, Admin!</h1>
+  <div className="flex items-center gap-4">
+    
+    {/* 🔥 Bell icon image update */}
+   <button 
+  onClick={() => { setPreviousActive(active); setActive("Notifications"); }} 
+  className="w-10 h-10 rounded-xl flex items-center justify-center border-none bg-[#EEF4FB] cursor-pointer hover:bg-blue-100 transition-colors"
+>
+  {/* Yahan SVG icon ka color #1866B4 set kiya gaya hai */}
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="#1866B4" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+  </svg>
+</button>
+    
+    <div 
+      onClick={() => { setPreviousActive(active); setActive("Profile"); }} 
+      className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-100 cursor-pointer hover:border-gray-200 transition-colors"
+    >
+      <img src={adminData.avatar} className="w-9 h-9 rounded-xl object-cover" alt="Admin" />
+      <div className="text-left">
+        <h4 className="font-bold text-xs text-slate-800">{adminData.name}</h4>
+        <p className="text-[10px] text-gray-400">{adminData.email}</p>
+      </div>
+    </div>
+  </div>
+</div>
         )}
 
         <div className="p-6 pt-2">
