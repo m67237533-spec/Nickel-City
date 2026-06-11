@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ReportedJobDetail from "./ReportedJobDetail"; // 🔥 Import details page
+import ReportedJobDetail from "./ReportedJobDetail"; 
 
 const reportedJobs = Array.from({ length: 3 }, (_, index) => ({
   id: index,
@@ -13,13 +13,13 @@ const reportedJobs = Array.from({ length: 3 }, (_, index) => ({
 
 export default function JobReport() {
   const [search, setSearch] = useState("");
-  const [selectedJob, setSelectedJob] = useState(null); // 🔥 Clicked job state
+  const [selectedJob, setSelectedJob] = useState(null); 
 
   const filteredJobs = reportedJobs.filter((job) =>
     job.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  // 🔥 Agar user ne kisi job par click kiya hua hai, toh detail view show karo
+  // Detail View render wrapper layer
   if (selectedJob) {
     return (
       <ReportedJobDetail 
@@ -30,72 +30,61 @@ export default function JobReport() {
   }
 
   return (
-    <div className="p-6 bg-[#F8F8F8] min-h-screen">
-      {/* Top Welcome Header */}
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-[48px] font-bold text-[#222]">Welcome Back, Admin!</h1>
-        <div className="flex items-center gap-4">
-          <button className="w-10 h-10 bg-[#EEF4FB] rounded-lg flex items-center justify-center border-none cursor-pointer text-xl">
-            🔔
-          </button>
-          <div className="flex items-center gap-3 bg-white px-3 py-2 rounded-lg shadow-sm">
-            <img src="https://i.pravatar.cc/100" alt="Admin" className="w-10 h-10 rounded-lg" />
-            <div>
-              <h4 className="font-semibold text-sm">Admin</h4>
-              <p className="text-xs text-gray-500">admin.admin@gmail.com</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Title and Search Bar Row */}
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold text-slate-800">Job Report</h2>
-        <div className="relative">
+    <div className="w-full min-h-screen bg-[#F8F8F8] p-8 flex flex-col box-border font-sans antialiased">
+      
+      {/* Title and Search Bar Row (Top Header Block Removed) */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 w-full">
+        <h2 className="text-2xl font-bold text-slate-800 m-0 tracking-tight">Job Report</h2>
+        <div className="relative w-full md:w-auto">
           <input
             type="text"
             placeholder="Search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-[360px] bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm outline-none text-sm placeholder-gray-400"
+            className="w-full md:w-[320px] bg-white border border-solid border-slate-100 rounded-xl px-4 py-2.5 shadow-2xs outline-none text-xs text-slate-700 placeholder-slate-400 focus:border-blue-500 transition-colors box-border"
           />
         </div>
       </div>
 
-      {/* Reported Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Reported Cards Responsive Layout Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
         {filteredJobs.map((job) => (
           <div
             key={job.id}
-            onClick={() => setSelectedJob(job)} // 🔥 Click karne par details open hongi
-            className="bg-white rounded-2xl p-5 shadow-sm border border-gray-50 transition-all cursor-pointer hover:shadow-md hover:scale-[1.01]"
+            onClick={() => setSelectedJob(job)} 
+            className="bg-white rounded-2xl p-5 shadow-2xs border border-solid border-slate-100/60 transition-all cursor-pointer hover:shadow-xs hover:translate-y-[-1px] flex flex-col justify-between"
           >
-            <div className="flex justify-between items-start">
-              <div>
-                <h3 className="font-bold text-lg text-slate-800">{job.title}</h3>
-                <p className="text-xs text-gray-400 mt-0.5">{job.yardSize} sq ft</p>
+            <div>
+              <div className="flex justify-between items-start w-full">
+                <div>
+                  <h3 className="font-bold text-sm text-slate-800 m-0 tracking-tight">{job.title}</h3>
+                  <p className="text-[11px] text-slate-400 font-medium m-0 mt-0.5">{job.yardSize} sq ft</p>
+                </div>
+
+                <div className="text-right flex flex-col items-end">
+                  <span className="border border-solid border-red-200 bg-red-50 text-red-500 px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
+                    {job.status}
+                  </span>
+                  <h4 className="font-extrabold m-0 mt-2 text-slate-800 text-base">${job.price}</h4>
+                  <p className="text-[9px] text-slate-400 font-medium m-0">/min</p>
+                </div>
               </div>
 
-              <div className="text-right">
-                <span className="border border-red-200 bg-red-50 text-red-500 px-3 py-0.5 rounded-full text-[11px] font-semibold">
-                  {job.status}
-                </span>
-                <h4 className="font-bold mt-2 text-slate-800 text-lg">${job.price}</h4>
-                <p className="text-[10px] text-gray-400 -mt-1">/min</p>
+              <div className="mt-4">
+                <span className="text-[11px] text-slate-400 font-medium block">{job.date}</span>
+                <p className="text-[11px] text-slate-500 font-medium m-0 mt-0.5 line-clamp-1">{job.address}</p>
               </div>
             </div>
 
-            <p className="text-xs text-gray-500 mt-4">{job.date}</p>
-            <p className="text-xs text-gray-400 mt-1 line-clamp-1">{job.address}</p>
-            
-            <p className="text-xs text-gray-500 mt-4 mb-2 flex items-center gap-1">
-              📎 attachments
-            </p>
-
-            <div className="flex gap-2">
-              <img src="https://picsum.photos/seed/report1/120/120" className="w-16 h-16 rounded-xl object-cover" />
-              <img src="https://picsum.photos/seed/report2/120/120" className="w-16 h-16 rounded-xl object-cover" />
-              <img src="https://picsum.photos/seed/report3/120/120" className="w-16 h-16 rounded-xl object-cover" />
+            <div className="mt-4">
+              <p className="text-[10px] font-bold text-slate-400 flex items-center gap-1 m-0 mb-2 uppercase tracking-wider">
+                📎 attachments
+              </p>
+              <div className="flex gap-1.5">
+                <img src="https://picsum.photos/seed/report1/100/100" className="w-12 h-12 rounded-lg object-cover border border-solid border-slate-100 shadow-3xs" alt="Attach Preview" />
+                <img src="https://picsum.photos/seed/report2/100/100" className="w-12 h-12 rounded-lg object-cover border border-solid border-slate-100 shadow-3xs" alt="Attach Preview" />
+                <img src="https://picsum.photos/seed/report3/100/100" className="w-12 h-12 rounded-lg object-cover border border-solid border-slate-100 shadow-3xs" alt="Attach Preview" />
+              </div>
             </div>
           </div>
         ))}

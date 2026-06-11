@@ -1,8 +1,7 @@
-import TopBar from "../components/TopBar";
 import { useState } from "react";
-import JobDetail from "./JobDetail"; // 🔥 Agli file ko yahan import kiya
+import JobDetail from "./JobDetail"; 
 
-// Mock Data
+// Mock Data Structure
 const jobs = Array.from({ length: 12 }, (_, index) => ({
   id: index,
   title: index % 2 === 0 ? "Lawn Mowing" : "Snow Removal",
@@ -12,6 +11,7 @@ const jobs = Array.from({ length: 12 }, (_, index) => ({
   address: "53C, 14th street, Empire state, USA",
   yardSize: "500",
   price: "24",
+  instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
   status:
     index % 4 === 0
       ? "Pending"
@@ -25,7 +25,7 @@ const jobs = Array.from({ length: 12 }, (_, index) => ({
 export default function JobManagement() {
   const [filter, setFilter] = useState("All");
   const [search, setSearch] = useState("");
-  const [selectedJob, setSelectedJob] = useState(null); // 🔥 State for detail view
+  const [selectedJob, setSelectedJob] = useState(null); 
 
   const getStatusClass = (status) => {
     switch (status) {
@@ -42,7 +42,6 @@ export default function JobManagement() {
     }
   };
 
-  // Filter Logic
   const filteredJobs = jobs.filter((job) => {
     const matchFilter = filter === "All" || job.status === filter;
     const matchSearch =
@@ -52,7 +51,7 @@ export default function JobManagement() {
     return matchFilter && matchSearch;
   });
 
-  // 🔥 Agar koi card click hua hai toh JobDetail component render hoga
+  // Dynamic Routing Wrapper inside Main Layout view
   if (selectedJob) {
     return (
       <JobDetail 
@@ -64,84 +63,84 @@ export default function JobManagement() {
   }
 
   return (
-    <div className="p-6 bg-[#F8F8F8] min-h-screen">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-[48px] font-bold text-[#222]">Welcome Back, Admin!</h1>
-        <div className="flex items-center gap-4">
-          <button className="w-10 h-10 bg-[#EEF4FB] rounded-lg flex items-center justify-center border-none cursor-pointer">
-            {/* Bell icon */}
+    <div className="w-full min-h-screen bg-[#F8F8F8] flex flex-col box-border font-sans antialiased overflow-x-hidden p-8">
+      
+      {/* Title & Input Field Row */}
+      <div className="flex justify-between items-center mb-6 flex-wrap gap-4 w-full">
+        <h2 className="text-xl font-bold text-[#1e293b] m-0">Job Management</h2>
+
+        {/* Exact Mockup Size Input Box */}
+        <div className="flex items-center gap-3 border border-solid border-gray-200/80 rounded-xl px-4 py-2.5 bg-white w-full md:w-[320px] shadow-2xs transition-all focus-within:border-slate-300">
+          <span className="text-gray-400 text-sm select-none">🔍</span>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="text-xs outline-none border-none w-full text-slate-700 placeholder-gray-400 bg-transparent"
+          />
+        </div>
+      </div>
+
+      {/* Filter Tabs Row */}
+      <div className="flex gap-2 mb-8 flex-wrap">
+        {["All", "Pending", "Active", "Cancelled", "Completed"].map((item) => (
+          <button
+            key={item}
+            onClick={() => setFilter(item)}
+            className={`px-4 py-1.5 rounded-full text-xs font-semibold border border-solid transition-all cursor-pointer ${
+              filter === item 
+                ? "bg-[#1866B4] text-white border-[#1866B4] shadow-xs" 
+                : "bg-white text-gray-500 border-slate-200/60 hover:bg-slate-50"
+            }`}
+          >
+            {item}
           </button>
-          <div className="flex items-center gap-3 bg-white px-3 py-2 rounded-lg shadow-sm">
-            <img src="https://i.pravatar.cc/100" alt="" className="w-10 h-10 rounded-lg" />
-            <div>
-              <h4 className="font-semibold text-sm">Admin</h4>
-              <p className="text-xs text-gray-500">admin.admin@gmail.com</p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
-      {/* Title & Search */}
-      <div className="flex justify-between items-center mb-6">
-        <div>
-          <h2 className="text-3xl font-bold">Job Management</h2>
-          <div className="flex gap-2 mt-3">
-            {["All", "Pending", "Active", "Cancelled", "Completed"].map((item) => (
-              <button
-                key={item}
-                onClick={() => setFilter(item)}
-                className={`px-4 py-1 rounded-full text-xs border cursor-pointer font-medium transition-all ${
-                  filter === item ? "bg-[#1866B4] text-white border-[#1866B4]" : "bg-white text-gray-600"
-                }`}
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <input
-          type="text"
-          placeholder="Search by service or user..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-[360px] bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-sm outline-none text-sm"
-        />
-      </div>
-
-      {/* Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      {/* Cards Responsive Grid View */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
         {filteredJobs.map((job) => (
           <div
             key={job.id}
-            onClick={() => setSelectedJob(job)} // 🔥 Click Handler
-            className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:border-blue-400 transition-all cursor-pointer hover:shadow-md"
+            onClick={() => setSelectedJob(job)} 
+            className="bg-white rounded-xl p-4 shadow-sm border border-solid border-gray-100 hover:border-blue-400 transition-all cursor-pointer hover:shadow-md flex flex-col justify-between box-border min-h-[250px]"
           >
-            <div className="flex justify-between">
-              <div>
-                <h3 className="font-bold text-slate-800">{job.title}</h3>
-                <p className="text-xs text-gray-400">{job.yardSize} sq ft</p>
-                <p className="text-[11px] text-blue-600 font-medium mt-1">👤 {job.name}</p>
+            <div className="w-full">
+              <div className="flex justify-between items-start gap-2">
+                <div>
+                  <h3 className="font-bold text-slate-800 m-0 text-sm tracking-tight">{job.title}</h3>
+                  <p className="text-[11px] text-gray-400 m-0 mt-0.5">
+                    {job.title.toLowerCase().includes("snow") ? "Driveway, Walkways" : `${job.yardSize} sq ft`}
+                  </p>
+                  <p className="text-[11px] text-[#1866B4] font-bold m-0 mt-2">👤 {job.name}</p>
+                </div>
+
+                <div className="text-right flex flex-col items-end flex-shrink-0">
+                  <span className={`border border-solid px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wide ${getStatusClass(job.status)}`}>
+                    {job.status}
+                  </span>
+                  <h4 className="font-black mt-2 mb-0 text-slate-800 text-base">${job.price}</h4>
+                  <p className="text-[9px] text-gray-400 m-0">/min</p>
+                </div>
               </div>
 
-              <div className="text-right">
-                <span className={`border px-2 py-0.5 rounded-full text-[10px] font-semibold ${getStatusClass(job.status)}`}>
-                  {job.status}
-                </span>
-                <h4 className="font-bold mt-2 text-slate-800">${job.price}</h4>
-                <p className="text-[10px] text-gray-400">/min</p>
-              </div>
+              <p className="text-[11px] text-gray-400 font-medium mt-4 m-0">Sep 25, 2025 | 09:00 AM</p>
+              <p className="text-[11px] text-gray-500 font-medium mt-1 m-0 line-clamp-1">{job.address}</p>
             </div>
 
-            <p className="text-xs text-gray-500 mt-3">Sep 25, 2025 | 09:00 AM</p>
-            <p className="text-xs text-gray-400 mt-1 line-clamp-1">{job.address}</p>
-            <p className="text-xs text-gray-500 mt-4 mb-2">📎 attachments</p>
+            <div className="w-full mt-4">
+              <p className="text-[10px] text-gray-400 font-bold flex items-center gap-1 mb-2 m-0">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-blue-500"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                attachments
+              </p>
 
-            <div className="flex gap-2">
-              <img src="https://picsum.photos/seed/l1/60/60" className="w-12 h-12 rounded-md object-cover" />
-              <img src="https://picsum.photos/seed/l2/60/60" className="w-12 h-12 rounded-md object-cover" />
-              <img src="https://picsum.photos/seed/l3/60/60" className="w-12 h-12 rounded-md object-cover" />
+              <div className="flex gap-1.5 w-full">
+                <img src={job.title.toLowerCase().includes("snow") ? "https://picsum.photos/seed/s1/60/60" : "https://picsum.photos/seed/l1/60/60"} alt="attachment" className="w-[52px] h-10 rounded-lg object-cover flex-shrink-0" />
+                <img src={job.title.toLowerCase().includes("snow") ? "https://picsum.photos/seed/s2/60/60" : "https://picsum.photos/seed/l2/60/60"} alt="attachment" className="w-[52px] h-10 rounded-lg object-cover flex-shrink-0" />
+                <img src={job.title.toLowerCase().includes("snow") ? "https://picsum.photos/seed/s3/60/60" : "https://picsum.photos/seed/l3/60/60"} alt="attachment" className="w-[52px] h-10 rounded-lg object-cover flex-shrink-0" />
+              </div>
             </div>
           </div>
         ))}
