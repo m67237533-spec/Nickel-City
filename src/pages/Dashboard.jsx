@@ -17,7 +17,7 @@ const revenueData = [
 ];
 
 const stats = [
-  { label: "Total Revenue",     value: "$5,780", bg: "bg-blue-50",   emoji: "💵" },
+  { label: "Total Revenue",     value: "$5,780", bg: "bg-blue-50",  emoji: "💵" },
   { label: "Total Commissions", value: "$1,156", bg: "bg-emerald-50", emoji: "💰" },
   { label: "Total Contractors", value: "190",    bg: "bg-amber-50",  emoji: "👷" },
   { label: "Total Customer",    value: "512",    bg: "bg-violet-50", emoji: "👥" },
@@ -55,15 +55,21 @@ function StatCard({ label, value, bg, emoji }) {
 export default function DashboardPage() {
   return (
     <div className="p-8">
-  <TopBar />
-      <h2 className="text-lg font-semibold text-slate-800 mb-5">Dashboard</h2>
+      <div className="mb-6">
+        <TopBar />
+      </div>
+      
+      {/* Dashboard Heading - Updated to font-extrabold */}
+      <h2 className="text-xl font-extrabold text-slate-900 mb-6 text-left">
+        Dashboard
+      </h2>
 
       {/* Stat Cards */}
       <div className="flex gap-4 flex-wrap mb-8">
         {stats.map(s => <StatCard key={s.label} {...s} />)}
       </div>
 
-      {/* Chart */}
+      {/* Chart Section */}
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
         <div className="flex justify-end items-center gap-2 mb-4">
           <span className="text-xs text-gray-400">Provisions Month</span>
@@ -83,7 +89,6 @@ export default function DashboardPage() {
           </LineChart>
         </ResponsiveContainer>
 
-        {/* Legend */}
         <div className="flex gap-5 mt-3 justify-center">
           <div className="flex items-center gap-1.5">
             <div className="w-6 h-0.5 bg-[#1866B4] rounded" />

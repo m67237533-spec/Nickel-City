@@ -1,6 +1,5 @@
 import TopBar from "../components/TopBar";
 import { useState } from "react";
-// Dono files ko alag-alag import kar liya gaya hai
 import EditService from "./EditService";
 import EditSnowRemoval from "./EditSnowRemoval";
 
@@ -38,7 +37,6 @@ const initialServices = [
 export default function ServiceManagement() {
   const [editingService, setEditingService] = useState(null);
 
-  // Dynamic Routing Logic bina router package ke
   if (editingService) {
     if (editingService.title === "Snow Removal") {
       return (
@@ -59,22 +57,28 @@ export default function ServiceManagement() {
 
   return (
     <div className="p-8">
-      <TopBar />
-      <h2 className="text-xl font-semibold text-slate-800 mb-6">Service Management</h2>
+      <div className="mb-6">
+        <TopBar />
+      </div>
+      
+      <h2 className="text-xl font-extrabold text-slate-900 mb-6 text-left">
+        Service Management
+      </h2>
 
       <div className="flex gap-5 flex-wrap">
         {initialServices.map((service) => (
-          <div key={service.id} className="w-60 bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+          <div key={service.id} className="w-60 bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 text-left">
             <div className="relative">
               <img src={service.image} alt={service.title} className="w-full h-40 object-cover block" />
               <button
                 onClick={() => setEditingService(service)}
-                className="absolute top-2 right-2 w-8 h-8 rounded-full bg-white border-none cursor-pointer flex items-center justify-center shadow-md text-sm"
+                className="absolute top-2 right-2 w-8 h-8 rounded-full bg-white border-none cursor-pointer flex items-center justify-center shadow-md text-sm hover:bg-gray-50 transition-colors"
               >
                 ✏️
               </button>
             </div>
-            <div className="px-3.5 py-3">
+            {/* Yahan text ko left-align kiya gaya hai */}
+            <div className="px-3.5 py-3 text-left">
               <div className="text-sm font-semibold text-slate-800 mb-1">{service.title}</div>
               <div className="text-xs text-gray-500">
                 Service Commission: <span className="font-bold text-slate-800">{service.commission}%</span>
