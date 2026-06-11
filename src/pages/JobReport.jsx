@@ -1,12 +1,12 @@
 import { useState } from "react";
+import { Search } from "lucide-react"; // Search icon import kiya
 import ReportedJobDetail from "./ReportedJobDetail"; 
 
 const reportedJobs = Array.from({ length: 3 }, (_, index) => ({
   id: index,
-  title: index === 1 ? "Snow Removal" : "Lawn Mowing",
+  title: index % 2 === 0 ? "Lawn Mowing" : "Snow Removal",
   date: "Sep 25, 2025 | 09:00 AM",
   address: "53C, 14th street, Empire state, USA",
-  yardSize: "500",
   price: "24",
   status: "Reported"
 }));
@@ -19,71 +19,65 @@ export default function JobReport() {
     job.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Detail View render wrapper layer
   if (selectedJob) {
-    return (
-      <ReportedJobDetail 
-        job={selectedJob} 
-        onBack={() => setSelectedJob(null)} 
-      />
-    );
+    return <ReportedJobDetail job={selectedJob} onBack={() => setSelectedJob(null)} />;
   }
 
   return (
-    <div className="w-full min-h-screen bg-[#F8F8F8] p-8 flex flex-col box-border font-sans antialiased">
-      
-      {/* Title and Search Bar Row (Top Header Block Removed) */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 w-full">
-        <h2 className="text-2xl font-bold text-slate-800 m-0 tracking-tight">Job Report</h2>
-        <div className="relative w-full md:w-auto">
+    <div className="w-full p-8 bg-[#F8F8F8]">
+      {/* Header with Search Bar and Icon */}
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold text-slate-800">Job Report</h2>
+        <div className="relative w-full md:w-[600px]">
+          {/* Icon Container */}
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
             type="text"
             placeholder="Search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full md:w-[320px] bg-white border border-solid border-slate-100 rounded-xl px-4 py-2.5 shadow-2xs outline-none text-xs text-slate-700 placeholder-slate-400 focus:border-blue-500 transition-colors box-border"
+            className="w-full border border-gray-200 rounded-xl pl-12 pr-4 py-4 text-sm outline-none shadow-sm focus:border-blue-400 transition-all"
           />
         </div>
       </div>
 
-      {/* Reported Cards Responsive Layout Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+      {/* Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {filteredJobs.map((job) => (
           <div
             key={job.id}
-            onClick={() => setSelectedJob(job)} 
-            className="bg-white rounded-2xl p-5 shadow-2xs border border-solid border-slate-100/60 transition-all cursor-pointer hover:shadow-xs hover:translate-y-[-1px] flex flex-col justify-between"
+            onClick={() => setSelectedJob(job)}
+            className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:border-blue-300 transition-all cursor-pointer flex flex-col min-h-[210px]"
           >
-            <div>
-              <div className="flex justify-between items-start w-full">
-                <div>
-                  <h3 className="font-bold text-sm text-slate-800 m-0 tracking-tight">{job.title}</h3>
-                  <p className="text-[11px] text-slate-400 font-medium m-0 mt-0.5">{job.yardSize} sq ft</p>
-                </div>
-
-                <div className="text-right flex flex-col items-end">
-                  <span className="border border-solid border-red-200 bg-red-50 text-red-500 px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
-                    {job.status}
-                  </span>
-                  <h4 className="font-extrabold m-0 mt-2 text-slate-800 text-base">${job.price}</h4>
-                  <p className="text-[9px] text-slate-400 font-medium m-0">/min</p>
+            {/* ... rest of the card code same as before ... */}
+            <div className="flex justify-between items-start mb-3">
+              <div className="text-left">
+                <h3 className="font-bold text-slate-900 text-sm leading-none">{job.title}</h3>
+                <p className="text-[10px] text-gray-400 mt-1">500 sq ft</p>
+                <div className="mt-2 text-[10px] text-gray-500 font-medium leading-tight">
+                  <p>{job.date}</p>
+                  <p className="text-gray-500 mt-0.5 truncate max-w-[140px]">{job.address}</p>
                 </div>
               </div>
-
-              <div className="mt-4">
-                <span className="text-[11px] text-slate-400 font-medium block">{job.date}</span>
-                <p className="text-[11px] text-slate-500 font-medium m-0 mt-0.5 line-clamp-1">{job.address}</p>
+              <div className="text-right">
+                <span className="px-3 py-1 rounded-full text-[10px] font-bold border flex items-center justify-center min-w-[75px] text-red-600 bg-red-50 border-red-200">
+                  {job.status}
+                </span>
+                <p className="font-black text-sm text-slate-900 mt-2 mb-0">${job.price}<span className="text-[9px] text-gray-400 font-normal"><br />/min</span></p>
               </div>
             </div>
 
-            <div className="mt-4">
-              <p className="text-[10px] font-bold text-slate-400 flex items-center gap-1 m-0 mb-2 uppercase tracking-wider">
-                📎 attachments
-              </p>
+            <div className="mt-auto border-t pt-3">
+              <p className="text-[9px] font-bold text-blue-600 flex items-center gap-1 mb-2">📎 attachments</p>
               <div className="flex gap-1.5">
-                <img src="https://picsum.photos/seed/report1/100/100" className="w-12 h-12 rounded-lg object-cover border border-solid border-slate-100 shadow-3xs" alt="Attach Preview" />
-                <img src="https://picsum.photos/seed/report2/100/100" className="w-12 h-12 rounded-lg object-cover border border-solid border-slate-100 shadow-3xs" alt="Attach Preview" />
-                <img src="https://picsum.photos/seed/report3/100/100" className="w-12 h-12 rounded-lg object-cover border border-solid border-slate-100 shadow-3xs" alt="Attach Preview" />
+                {[1, 2, 3].map((i) => (
+                  <img 
+                    key={i} 
+                    src={job.title === "Lawn Mowing" ? `/images/job.${i}.jpg` : `/images/m.${i}.jpg`} 
+                    alt="job-img" 
+                    className="w-14 h-12 rounded-lg object-cover border border-slate-100" 
+                  />
+                ))}
               </div>
             </div>
           </div>
