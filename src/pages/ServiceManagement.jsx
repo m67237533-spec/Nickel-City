@@ -8,7 +8,7 @@ const initialServices = [
     id: 1,
     title: "Lawn Mowing",
     commission: 20,
-    image: "https://picsum.photos/seed/snow/400/200",
+    image: "/images/service.1.jpg",
     ranges: [
       {
         state: "California",
@@ -22,7 +22,7 @@ const initialServices = [
     id: 2,
     title: "Snow Removal",
     commission: 20,
-    image: "https://picsum.photos/seed/lawn/400/200",
+    image: "/images/service.2.jpg",
     ranges: [
       {
         state: "Texas",
@@ -56,32 +56,37 @@ export default function ServiceManagement() {
   }
 
   return (
-    <div className="p-8">
-      <div className="mb-6">
+    <div className="p-8 pt-0">
+      <div className="mb-2">
         <TopBar />
       </div>
       
-      <h2 className="text-xl font-extrabold text-slate-900 mb-6 text-left">
+      <h2 className="text-xl font-bold text-slate-900 mt-2 mb-6 text-left ml-2">
         Service Management
       </h2>
 
-      <div className="flex gap-5 flex-wrap">
+      <div className="flex gap-5 flex-wrap ml-2">
         {initialServices.map((service) => (
-          <div key={service.id} className="w-60 bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 text-left">
-            <div className="relative">
-              <img src={service.image} alt={service.title} className="w-full h-40 object-cover block" />
+          <div key={service.id} className="w-60 bg-white rounded-2xl shadow-lg border border-gray-100 text-left transition-all hover:shadow-xl">
+            {/* 🔥 Yahan p-2 add kiya hai taake image ke charon taraf padding ho jaye */}
+            <div className="relative p-2">
+              <img 
+                src={service.image} 
+                alt={service.title} 
+                className="w-full h-32 object-cover rounded-xl" 
+              />
               <button
                 onClick={() => setEditingService(service)}
-                className="absolute top-2 right-2 w-8 h-8 rounded-full bg-white border-none cursor-pointer flex items-center justify-center shadow-md text-sm hover:bg-gray-50 transition-colors"
+                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white border border-gray-100 cursor-pointer flex items-center justify-center shadow-md text-sm hover:bg-gray-50 transition-colors"
               >
                 ✏️
               </button>
             </div>
-            {/* Yahan text ko left-align kiya gaya hai */}
-            <div className="px-3.5 py-3 text-left">
-              <div className="text-sm font-semibold text-slate-800 mb-1">{service.title}</div>
+            
+            <div className="px-4 pb-4 pt-1 text-left">
+              <div className="text-sm font-bold text-slate-800 mb-1">{service.title}</div>
               <div className="text-xs text-gray-500">
-                Service Commission: <span className="font-bold text-slate-800">{service.commission}%</span>
+                Service Commission: <span className="font-bold text-blue-600">{service.commission}%</span>
               </div>
             </div>
           </div>
