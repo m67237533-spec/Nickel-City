@@ -26,7 +26,7 @@ export default function Sidebar({ active, setActive, onLogoutClick }) {
             <button
               key={label}
               onClick={() => setActive(label)}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 mb-2 rounded-xl text-[13px] transition-all border-none cursor-pointer
+              className={`w-full flex items-center gap-3 px-3 py-2.5 mb-4 rounded-xl text-[13px] transition-all border-none cursor-pointer
               ${isActive ? "bg-white text-[#1866B4] shadow-md font-bold" : "text-white hover:bg-white/10"}`}
             >
               <img

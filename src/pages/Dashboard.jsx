@@ -62,7 +62,7 @@ export default function DashboardPage() {
         <TopBar />
       </div>
       
-      <h2 className="text-xl font-extrabold text-slate-900 mb-4 text-left">
+      <h2 className="text-sl font-extrabold text-slate-900 mb-2 text-left">
         Dashboard
       </h2>
 

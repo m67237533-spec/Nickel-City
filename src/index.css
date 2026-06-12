@@ -13,7 +13,7 @@
 html, body, #root {
   height: 100%;
   width: 100%;
-  background-color: #FFFFFF !important;
+  background-color: #fff !important;
   color: #0f172a;
   font-family: 'Segoe UI', system-ui, sans-serif;
 }

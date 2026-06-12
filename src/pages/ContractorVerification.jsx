@@ -62,14 +62,11 @@ export default function ContractorVerification() {
 
       <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
         <h2 className="text-xl font-semibold text-slate-800">Contractor Verification</h2>
-        <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-white w-56">
-          <span className="text-gray-400 text-sm">🔍</span>
-          <input
-            type="text"
-            placeholder="Search..."
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            className="text-sm outline-none border-none w-full text-slate-700 placeholder-gray-400"
+               <div className="flex gap-3">
+          <input 
+            type="text" 
+            placeholder="Search..." 
+            className="w-[600px] border border-slate-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-blue-400 transition-all shadow-sm" 
           />
         </div>
       </div>
