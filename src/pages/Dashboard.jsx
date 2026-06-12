@@ -41,12 +41,9 @@ function CustomTooltip({ active, payload }) {
 function StatCard({ label, value, bg, icon }) {
   return (
     <div className="bg-white rounded-2xl p-5 flex items-center gap-4 flex-1 min-w-[160px] shadow-sm border border-gray-100">
-      {/* Image ka wrapper left par fix hai */}
       <div className={`w-12 h-12 rounded-full ${bg} flex items-center justify-center flex-shrink-0`}>
         <img src={icon} alt={label} className="w-6 h-6 object-contain" />
       </div>
-      
-      {/* Text content right side par automatically set ho jayega */}
       <div className="text-left">
         <div className="text-2xl font-bold text-slate-800">{value}</div>
         <div className="text-xs text-gray-400 mt-0.5">{label}</div>
@@ -57,12 +54,14 @@ function StatCard({ label, value, bg, icon }) {
 
 export default function DashboardPage() {
   return (
-    <div className="pt-2 px-8">
-      <div className="mb-2">
+    <div className="pt-0 px-5">
+      {/* Top Bar Wrapper */}
+      <div className="mb-0">
         <TopBar />
       </div>
       
-      <h2 className="text-sl font-extrabold text-slate-900 mb-2 text-left">
+      {/* 🔥 Dashboard Heading (Aligned with top and left) */}
+      <h2 className="text-xl font-extrabold text-slate-900 mt-2 mb-6 text-left ml-2">
         Dashboard
       </h2>
 
@@ -72,7 +71,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Chart Section */}
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+      <div className="bg-white rounded-2xl p-6 shadow-ml border border-gray-150">
         <div className="flex justify-end items-center gap-2 mb-4">
           <span className="text-xs text-gray-400">Provisions Month</span>
           <span className="text-xs font-semibold text-slate-800 bg-slate-50 border border-gray-200 rounded-lg px-3 py-1">

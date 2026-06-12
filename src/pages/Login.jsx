@@ -39,7 +39,7 @@ export default function Login({ onLoginSuccess, onForgotPasswordClick }) {
         <div className="w-full max-w-md">
           
           {/* Welcome Heading */}
-          <h2 className="text-[32px] font-bold text-slate-900 mb-8 tracking-tight text-left">
+          <h2 className="text-[32px] ctm-50 font-bold text-slate-900 mb-8 tracking-tight text-left">
             Welcome Back!
           </h2>
 

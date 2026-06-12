@@ -12,7 +12,7 @@ const navItems = [
 
 export default function Sidebar({ active, setActive, onLogoutClick }) {
   return (
-    <aside className="w-[250px] h-screen bg-[#1866B4] flex flex-col fixed top-0 left-0 z-40">
+    <aside className="w-[250px] h-screen l-280 bg-[#1866B4] flex flex-col fixed top-0 left-0 z-40">
       <div className="flex justify-center pt-6 pb-6">
         <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg">
           <img src="/images/Logo.jpg" alt="Logo" className="w-20 h-20 object-contain" />
@@ -26,7 +26,7 @@ export default function Sidebar({ active, setActive, onLogoutClick }) {
             <button
               key={label}
               onClick={() => setActive(label)}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 mb-4 rounded-xl text-[13px] transition-all border-none cursor-pointer
+              className={`w-full flex items-center gap-3 px-3 py-2.5 mb-4 rounded-xl text-[16px] transition-all border-none cursor-pointer
               ${isActive ? "bg-white text-[#1866B4] shadow-md font-bold" : "text-white hover:bg-white/10"}`}
             >
               <img

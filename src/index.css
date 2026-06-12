@@ -15,7 +15,10 @@ html, body, #root {
   width: 100%;
   background-color: #fff !important;
   color: #0f172a;
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: 'SF Pro', system-ui, sans-serif !important;
+}
+.bg-f {
+  background-color: #fff !important;
 }
 
 :root {
@@ -23,6 +26,14 @@ html, body, #root {
 }
 
 h1, h2 {
+  font-weight: 600;
+}
+.ctm-50{
+  font-size: 50px;
+  font-weight: 500;
+}
+.cmd-1{
+  font-size: 40px;
   font-weight: 600;
 }
 
