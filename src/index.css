@@ -35,6 +35,7 @@ h1, h2 {
 .cmd-1{
   font-size: 40px;
   font-weight: 600;
+  text-align:left;
 }
 
 h1 {

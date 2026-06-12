@@ -45,42 +45,44 @@ export default function App() {
   if (currentScreen === "RESET_PASSWORD") return <ResetPassword onBackToOTP={() => setCurrentScreen("VERIFY_OTP")} onResetSuccess={() => setCurrentScreen("LOGIN")} />;
 
   return (
-    <div className="flex min-h-screen bg-[#F8F8F8] font-sans relative">
+    <div className="flex min-h-screen font-sans relative">
       <Sidebar 
         active={["Notifications", "Change Password", "Terms & Conditions", "Privacy Policy", "About Us", "Profile", "EditProfile"].includes(active) ? "Settings" : active} 
         setActive={setActive} 
         onLogoutClick={() => setShowLogoutPopup(true)} 
       />
       
-      <main className="flex-1 pl-[270px] overflow-y-auto bg-f">
+      <main className="flex-1 pl-[270px] overflow-y-auto">
         {!["Notifications", "Change Password", "Terms & Conditions", "Privacy Policy", "About Us"].includes(active) && (
-        // 🔥 Yahan pt-6 add kiya hai taake thora upar se gap mil jaye
-        <div className="p-4 pb-2 pt-2 flex justify-between items-center">
-          {/* 🔥 ml-4 se right side shift kiya */}
-          <h1 className="text-[40px] font-bold cmd-1 text-[#222] tracking-tight ml-8">Welcome Back, Admin!</h1>
-          
-          <div className="flex items-center gap-2">
-            <button 
-              onClick={() => { setPreviousActive(active); setActive("Notifications"); }} 
-              className="w-10 h-10 rounded-xl flex items-center justify-center border-none bg-[#EEF4FB] cursor-pointer hover:bg-blue-100 transition-colors"
-            >
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="#1866B4" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
-              </svg>
-            </button>
-            
-            <div 
-              onClick={() => { setPreviousActive(active); setActive("Profile"); }} 
-              className="flex items-center gap-3 px-4 py-2 rounded-xl hover:border-gray-200 transition-colors cursor-pointer"
-            >
-              <img src={adminData.avatar} className="w-12 h-12 rounded-xl object-cover" alt="Admin" />
-              <div className="text-left">
-                <h4 className="font-bold text-xs text-slate-800">{adminData.name}</h4>
-                <p className="text-[18px] text-gray-400">{adminData.email}</p>
+          <div className="flex flex-col">
+            <div className="p-4 pb-4 pt-2 flex justify-between items-center">
+              <h1 className="text-[35px] font-bold text-[#222] tracking-tight pl-2 mt-2">Welcome Back, Admin!</h1>
+              
+              <div className="flex items-center gap-2">
+                <button 
+                  onClick={() => { setPreviousActive(active); setActive("Notifications"); }} 
+                  className="w-10 h-10 rounded-xl flex items-center justify-center border-none bg-[#EEF4FB] cursor-pointer hover:bg-blue-100 transition-colors"
+                >
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="#1866B4" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                  </svg>
+                </button>
+                
+                <div 
+                  onClick={() => { setPreviousActive(active); setActive("Profile"); }} 
+                  className="flex items-center gap-3 px-4 py-2 rounded-xl hover:border-gray-200 transition-colors cursor-pointer"
+                >
+                  <img src={adminData.avatar} className="w-12 h-12 rounded-xl object-cover" alt="Admin" />
+                  <div className="text-left">
+                    <h4 className="font-bold text-xs text-slate-800">{adminData.name}</h4>
+                    <p className="text-[18px] text-gray-400">{adminData.email}</p>
+                  </div>
+                </div>
               </div>
             </div>
+            {/* Horizontal Separator Line */}
+            <div className="w-full h-[1px] bg-gray-200 mb-6"></div>
           </div>
-        </div>
         )}
 
         <div className="p-6 pt-2">
@@ -127,10 +129,9 @@ export default function App() {
         </div>
       </main>
 
-      {/* ... (Baki code waisa hi rahega) */}
       {showUpdatePopup && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center z-[999]">
-          <div className="bg-white py-10 px-8 rounded-2xl max-w-[420px] w-full text-center shadow-2xl border border-solid border-slate-100 box-border mx-4 animate-in fade-in zoom-in-95 duration-200">
+          <div className="bg-white py-10 px-8 rounded-2xl max-w-[420px] w-full text-center shadow-2xl border border-solid border-slate-100 box-border mx-4">
             <h3 className="text-2xl font-bold text-slate-900 m-0 mb-3 tracking-tight">Successfully!</h3>
             <p className="text-sm font-medium text-slate-400 m-0 mb-6 leading-relaxed px-4">Your profile has been updated successfully.</p>
             <div className="px-6">

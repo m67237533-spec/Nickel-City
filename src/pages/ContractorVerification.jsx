@@ -36,36 +36,30 @@ export default function ContractorVerification() {
       <ContractorVerificationDetail
         contractor={selectedContractor}
         onBack={() => setSelectedContractor(null)}
-        onCancel={() => {
-          setSelectedContractor(null);
-          setActiveTab("Cancelled");
-        }}
-        onApprove={() => {
-          setSelectedContractor(null);
-          setActiveTab("Approved");
-        }}
+        onCancel={() => { setSelectedContractor(null); setActiveTab("Cancelled"); }}
+        onApprove={() => { setSelectedContractor(null); setActiveTab("Approved"); }}
       />
     );
   }
 
   const filtered = initialContractors.filter(c => {
     const matchTab = activeTab === "All" || c.status === activeTab;
-    const matchSearch =
-      c.name.toLowerCase().includes(search.toLowerCase()) ||
-      c.email.toLowerCase().includes(search.toLowerCase());
+    const matchSearch = c.name.toLowerCase().includes(search.toLowerCase()) || c.email.toLowerCase().includes(search.toLowerCase());
     return matchTab && matchSearch;
   });
 
   return (
-    <div className="p-8">
+    <div className="pl-0 pr-8 pt-0 pb-8">
       <TopBar />
 
-      <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
-        <h2 className="text-xl font-semibold text-slate-800">Contractor Verification</h2>
-               <div className="flex gap-3">
+      <div className="flex items-center justify-between mb-4 mt-0 flex-wrap gap-3 text-left">
+        <h2 className="text-xl font-bold text-slate-800">Contractor Verification</h2>
+        <div className="flex gap-3">
           <input 
             type="text" 
             placeholder="Search..." 
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             className="w-[600px] border border-slate-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-blue-400 transition-all shadow-sm" 
           />
         </div>
@@ -76,9 +70,7 @@ export default function ContractorVerification() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-1.5 rounded-full text-sm font-medium border-none cursor-pointer transition-all ${
-              activeTab === tab ? "text-white" : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-            }`}
+            className={`px-3 py-1 rounded-full text-[11px] font-medium border-none cursor-pointer transition-all ${activeTab === tab ? "text-white" : "bg-gray-100 text-gray-500 hover:bg-gray-200"}`}
             style={activeTab === tab ? { background: "#1866B4" } : {}}
           >
             {tab}
@@ -86,63 +78,51 @@ export default function ContractorVerification() {
         ))}
       </div>
 
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-x-auto">
-        <table className="w-full text-sm">
+      {/* Table left align karne ke liye margin-left hata di aur container ko screen ke edge se connect kar diya */}
+      <div className="w-full overflow-x-auto pl-0">
+        <table className="w-full text-[10px] border-separate border-spacing-y-2 text-left">
           <thead>
-            <tr className="border-b border-gray-100">
+            <tr className="text-black uppercase tracking-wider">
               {columns.map(col => (
-                <th key={col} className="text-left px-4 py-3 text-xs font-semibold text-slate-600 whitespace-nowrap">
-                  {col} {col !== "Action" && <span className="text-gray-300">↕</span>}
+                <th key={col} className="text-left px-3 py-2 font-bold whitespace-nowrap text-[11px]">
+                  {col} {col !== "Action" && <span className="text-gray-400">↕</span>}
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody>
-            {filtered.map((c, index) => (
-              <tr
-                key={c.id}
-                onClick={() => setSelectedContractor(c)}
-                className={`border-b border-gray-50 hover:bg-blue-50/30 transition-colors cursor-pointer ${index % 2 === 0 ? "bg-white" : "bg-blue-50/20"}`}
-              >
-                <td className="px-4 py-3 whitespace-nowrap">
-                  <div className="flex items-center gap-2">
-                    <img
-                      src={`https://picsum.photos/seed/cv${c.id}/32/32`}
-                      alt="avatar"
-                      className="w-7 h-7 rounded-full object-cover flex-shrink-0"
-                    />
-                    <span className="text-slate-700 font-medium">{c.name}</span>
-                  </div>
-                </td>
-                <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{c.email}</td>
-                <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{c.phone}</td>
-                <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{c.service}</td>
-                <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{c.company}</td>
-                <td className="px-4 py-3 text-slate-600 max-w-[180px] truncate">{c.address}</td>
-                <td className="px-4 py-3 whitespace-nowrap">
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${statusStyle(c.status)}`}>
-                    {c.status}
-                  </span>
-                </td>
-                <td className="px-4 py-3 whitespace-nowrap">
-                  {c.status === "Pending" && (
-                    <button
-                      onClick={e => { e.stopPropagation(); setSelectedContractor(c); }}
-                      className="text-gray-400 hover:text-slate-600 text-lg font-bold bg-transparent border-none cursor-pointer"
-                    >
-                      •••
-                    </button>
-                  )}
-                </td>
-              </tr>
-            ))}
-            {filtered.length === 0 && (
-              <tr>
-                <td colSpan={8} className="text-center py-10 text-gray-400 text-sm">
-                  No contractors found
-                </td>
-              </tr>
-            )}
+          <tbody className="text-[10px] text-black">
+            {filtered.map((c, index) => {
+              const isColored = index % 2 === 0;
+              return (
+                <tr
+                  key={c.id}
+                  onClick={() => setSelectedContractor(c)}
+                  className="cursor-pointer transition-colors"
+                >
+                  <td className={`px-3 py-2 whitespace-nowrap ${isColored ? "bg-[#F3F7FB] rounded-l-lg" : ""}`}>
+                    <div className="flex items-center gap-2">
+                      <img src={"/images/face.2.jpg"} alt="avatar" className="w-5 h-5 rounded-full object-cover" />
+                      <span className="font-bold text-black">{c.name}</span>
+                    </div>
+                  </td>
+                  <td className={`px-3 py-2 font-medium ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.email}</td>
+                  <td className={`px-3 py-2 font-medium ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.phone}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.service}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.company}</td>
+                  <td className={`px-3 py-2 max-w-[150px] truncate ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.address}</td>
+                  <td className={`px-3 py-2 whitespace-nowrap ${isColored ? "bg-[#F3F7FB]" : ""}`}>
+                    <span className={`px-2 py-0.5 rounded-full text-[9px] font-semibold ${statusStyle(c.status)}`}>
+                      {c.status}
+                    </span>
+                  </td>
+                  <td className={`px-3 py-2 whitespace-nowrap ${isColored ? "bg-[#F3F7FB] rounded-r-lg" : ""}`}>
+                    {c.status === "Pending" && (
+                      <button onClick={e => { e.stopPropagation(); setSelectedContractor(c); }} className="text-gray-400 hover:text-black text-lg font-bold bg-transparent border-none cursor-pointer">•••</button>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
