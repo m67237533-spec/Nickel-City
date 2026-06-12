@@ -17,10 +17,10 @@ const revenueData = [
 ];
 
 const stats = [
-  { label: "Total Revenue",     value: "$5,780", bg: "bg-blue-50",  emoji: "💵" },
-  { label: "Total Commissions", value: "$1,156", bg: "bg-emerald-50", emoji: "💰" },
-  { label: "Total Contractors", value: "190",    bg: "bg-amber-50",  emoji: "👷" },
-  { label: "Total Customer",    value: "512",    bg: "bg-violet-50", emoji: "👥" },
+  { label: "Total Revenue",     value: "$5,780", bg: "bg-blue-50",   icon: "/icons/dash.1.jpg" },
+  { label: "Total Commissions", value: "$1,156", bg: "bg-emerald-50", icon: "/icons/dash.2.jpg" },
+  { label: "Total Contractors", value: "190",    bg: "bg-amber-50",   icon: "/icons/dash.3.jpg" },
+  { label: "Total Customer",    value: "512",    bg: "bg-violet-50",  icon: "/icons/dash.4.jpg" },
 ];
 
 function CustomTooltip({ active, payload }) {
@@ -38,13 +38,16 @@ function CustomTooltip({ active, payload }) {
   return null;
 }
 
-function StatCard({ label, value, bg, emoji }) {
+function StatCard({ label, value, bg, icon }) {
   return (
     <div className="bg-white rounded-2xl p-5 flex items-center gap-4 flex-1 min-w-[160px] shadow-sm border border-gray-100">
-      <div className={`w-12 h-12 rounded-full ${bg} flex items-center justify-center text-2xl flex-shrink-0`}>
-        {emoji}
+      {/* Image ka wrapper left par fix hai */}
+      <div className={`w-12 h-12 rounded-full ${bg} flex items-center justify-center flex-shrink-0`}>
+        <img src={icon} alt={label} className="w-6 h-6 object-contain" />
       </div>
-      <div>
+      
+      {/* Text content right side par automatically set ho jayega */}
+      <div className="text-left">
         <div className="text-2xl font-bold text-slate-800">{value}</div>
         <div className="text-xs text-gray-400 mt-0.5">{label}</div>
       </div>

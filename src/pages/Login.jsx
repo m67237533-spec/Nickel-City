@@ -27,7 +27,7 @@ export default function Login({ onLoginSuccess, onForgotPasswordClick }) {
       {/* Left Section: Image Side */}
       <div className="hidden md:block w-1/2 relative min-h-screen">
         <img 
-          src="https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?auto=format&fit=crop&w=1000&q=80" 
+          src="/images/login.jpg" 
           alt="Lawn Mowing Professional" 
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -39,7 +39,7 @@ export default function Login({ onLoginSuccess, onForgotPasswordClick }) {
         <div className="w-full max-w-md">
           
           {/* Welcome Heading */}
-          <h2 className="text-[32px] font-bold text-slate-900 mb-8 tracking-tight">
+          <h2 className="text-[32px] font-bold text-slate-900 mb-8 tracking-tight text-left">
             Welcome Back!
           </h2>
 
@@ -47,7 +47,7 @@ export default function Login({ onLoginSuccess, onForgotPasswordClick }) {
             
             {/* Email Field */}
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-2">
+              <label className="block text-xs font-bold text-slate-700 mb-2 text-left">
                 Email Address
               </label>
               <div className="relative">
@@ -60,14 +60,14 @@ export default function Login({ onLoginSuccess, onForgotPasswordClick }) {
                   required
                 />
                 <span className="absolute right-3.5 top-3.5 text-gray-400 text-sm pointer-events-none">
-                  ✉️
+                  
                 </span>
               </div>
             </div>
 
             {/* Password Field */}
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-2">
+              <label className="block text-xs font-bold text-slate-700 mb-2 text-left">
                 Password
               </label>
               <div className="relative">
@@ -84,7 +84,7 @@ export default function Login({ onLoginSuccess, onForgotPasswordClick }) {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3.5 top-3.5 text-gray-400 text-sm hover:text-slate-600 cursor-pointer border-none bg-transparent"
                 >
-                  {showPassword ? "🔒" : "👁️"}
+                  {showPassword ? "" : ""}
                 </button>
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function Login({ onLoginSuccess, onForgotPasswordClick }) {
                   {/* Custom Toggle Switch */}
                   <div className="w-7 h-4 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-[#1866B4]"></div>
                 </div>
-                <span className="text-[11px] font-medium text-slate-500">Remember me</span>
+                <span className="text-[11px] font-bold text-slate-500 text-black">Remember me</span>
               </label>
               
               {/* 🔥 Static Alert Hata Kar App.jsx ki state control trigger laga di hai */}

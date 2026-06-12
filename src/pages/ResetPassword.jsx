@@ -19,7 +19,7 @@ export default function ResetPassword({ onBackToOTP, onResetSuccess }) {
             {/* Left Image Section */}
             <div className="w-1/2 relative hidden md:block min-h-screen">
                 <img
-                    src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?auto=format&fit=crop&w=1000&q=80"
+                    src="/images/reset.jpg"
                     className="absolute inset-0 w-full h-full object-cover"
                     alt="Reset Password"
                 />
@@ -31,16 +31,16 @@ export default function ResetPassword({ onBackToOTP, onResetSuccess }) {
                 <button onClick={onBackToOTP} className="absolute left-8 top-12 w-9 h-9 rounded-full bg-[#F0F4F8] border-none cursor-pointer">←</button>
 
                 <div className="w-full max-w-md">
-                    <h2 className="text-[32px] font-bold text-slate-900 mb-1">Reset Password</h2>
-                    <p className="text-[12px] text-gray-400 mb-8">Please type your new password</p>
+                    <h2 className="text-[32px] font-bold text-slate-900 mb-1 text-left">Reset Password</h2>
+                    <p className="text-[12px] text-gray-400 mb-8 text-left">Please type your new password</p>
 
                     <form onSubmit={handleSubmit} className="space-y-5">
                         <div>
-                            <label className="block text-xs font-bold text-slate-700 mb-2">Password</label>
+                            <label className="block text-xs font-bold text-slate-700 mb-2 text-left">Password</label>
                             <input type="password" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border border-gray-200 rounded-xl py-3 pl-4 text-xs outline-none focus:border-[#1866B4]" required />
                         </div>
                         <div>
-                            <label className="block text-xs font-bold text-slate-700 mb-2">Re-Type Password</label>
+                            <label className="block text-xs font-bold text-slate-700 mb-2 text-left">Re-Type Password</label>
                             <input type="password" placeholder="••••••••" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="w-full border border-gray-200 rounded-xl py-3 pl-4 text-xs outline-none focus:border-[#1866B4]" required />
                         </div>
 

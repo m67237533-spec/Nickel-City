@@ -43,7 +43,7 @@ export default function VerifyOTP({ onBackToForgot, onOTPSuccess }) {
       {/* Left Section: Full Height Snow Blowing Banner Image */}
       <div className="w-1/2 relative hidden md:block min-h-screen">
         <img 
-          src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?auto=format&fit=crop&w=1000&q=80" 
+          src="/images/reset.jpg" 
           className="absolute inset-0 w-full h-full object-cover" 
           alt="Snow Service OTP"
         />
