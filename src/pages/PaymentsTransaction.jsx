@@ -11,8 +11,8 @@ const initialTransactions = [
 const stats = [
   { label: "Total Revenue", value: "$5,780", bg: "bg-blue-50", icon: "/icons/dash.1.jpg" },
   { label: "Total Commissions", value: "$1,156", bg: "bg-emerald-50", icon: "/icons/dash.2.jpg" },
-  { label: "Total Contractors", value: "512", bg: "bg-amber-50", icon: "/icons/dash.3.jpg" },
-  { label: "Total Customer", value: "190", bg: "bg-violet-50", icon: "/icons/dash.4.jpg" },
+  { label: "Total Contractors", value: "512", bg: "bg-amber-50", icon: "/icons/msg.jpg" },
+  { label: "Total Customer", value: "190", bg: "bg-violet-50", icon: "/icons/msg2.jpg" },
 ];
 
 function StatCard({ label, value, bg, icon }) {
@@ -43,7 +43,7 @@ export default function PaymentsTransaction() {
   };
 
   return (
-   <div className="w-full min-h-screen flex flex-col box-border font-sans antialiased p-8">
+   <div className="w-full min-h-screen flex flex-col box-border font-sans antialiased ">
       
       {/* Header & Search */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 w-full">
