@@ -32,19 +32,19 @@ export default function JobManagement() {
   if (selectedJob) return <JobDetail job={selectedJob} onBack={() => setSelectedJob(null)} getStatusClass={getStatusClass} />;
 
   return (
-    // yahan pt-8 aur pb-2 set kiya hai taaki niche ki space kam ho jaye
-    <div className="w-full px-4 pt-8 pb-2 bg-[#F8F8F8]">
+    <div className="w-full pl-2 pr-4 pt-8 pb-2 mt-[-50px]">
       {/* Header */}
       <div className="flex justify-between items-center mb-5">
-        <h2 className="text-xl font-bold text-slate-800">Job Management</h2>
-        <div className="relative w-[320px]">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-3.5 h-3.5" />
+        <h2 className="text-xl font-bold text-slate-800 m-0">Job Management</h2>
+        
+        <div className="relative w-[500px]"> 
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
           <input
             type="text"
             placeholder="Search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-xs outline-none shadow-sm focus:border-blue-400"
+            className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-2.5 text-xs outline-none shadow-md focus:border-blue-400 transition-all"
           />
         </div>
       </div>
@@ -64,20 +64,21 @@ export default function JobManagement() {
         ))}
       </div>
 
-      {/* Cards Grid: 4 per row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {filteredJobs.map((job) => (
           <div
             key={job.id}
             onClick={() => setSelectedJob(job)}
-            className="bg-white rounded-xl p-3 shadow-sm border border-gray-100 hover:border-blue-300 transition-all cursor-pointer flex flex-col min-h-[170px]"
+            // Yahan shadow-md aur hover:shadow-lg add kiya gaya hai
+            className="bg-white rounded-xl p-4 shadow-md border border-gray-100 hover:shadow-lg hover:border-blue-300 transition-all cursor-pointer flex flex-col min-h-[200px]"
           >
             <div className="flex justify-between items-start mb-2">
               <div className="text-left">
                 <h3 className="font-bold text-slate-900 text-[11px] leading-tight">Lawn Mowing</h3>
                 <p className="text-[9px] text-gray-400 mt-0.5">500 sq ft</p>
                 <div className="mt-2 text-[9px] text-gray-500 font-medium leading-tight">
-                  <p>Sep 25, 2025</p>
+                  <p>Sep 25, 2025 | 09:00 AM</p>
                   <p className="text-gray-500 mt-0.5 truncate max-w-[100px]">{job.address}</p>
                 </div>
               </div>
@@ -85,19 +86,19 @@ export default function JobManagement() {
                 <span className={`px-1.5 py-0.5 rounded-full text-[8px] font-bold border flex items-center justify-center min-w-[50px] ${getStatusClass(job.status)}`}>
                   {job.status}
                 </span>
-                <p className="font-black text-xs text-slate-900 mt-1.5 mb-0">${job.price}<span className="text-[8px] text-gray-400 font-normal">/min</span></p>
+                <p className="font-black text-xs text-slate-900 mt-1.5 mb-0">${job.price}<span className="text-[8px] text-gray-400 font-normal"> <br /> /min</span></p>
               </div>
             </div>
 
             <div className="mt-auto border-t pt-2">
-              <p className="text-[8px] font-bold text-blue-600 flex items-center gap-1 mb-1.5">📎 attachments</p>
+              <p className="text-[10px] font-bold text-grey-900 flex items-center gap-1 mb-1.5">📎 attachments</p>
               <div className="flex gap-1">
                 {[1, 2, 3].map((i) => (
                   <img 
                     key={i} 
                     src={job.id < 4 ? `/images/job.${i}.jpg` : `/images/m.${i}.jpg`} 
                     alt="job-img" 
-                    className="w-9 h-9 rounded-md object-cover border border-slate-100" 
+                    className="w-12 h-12 rounded-md object-cover border border-slate-100" 
                   />
                 ))}
               </div>

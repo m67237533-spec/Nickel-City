@@ -5,15 +5,13 @@ import ContractorVerificationDetail from "./ContractorVerificationDetail";
 const initialContractors = [
   { id: 1,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
   { id: 2,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
-  { id: 3,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A",          address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
-  { id: 4,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
-  { id: 5,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
-  { id: 6,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A",          address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
-  { id: 7,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
-  { id: 8,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
-  { id: 9,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A",          address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
-  { id: 10, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
-  { id: 11, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
+  { id: 3,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A",           address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
+  { id: 1,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
+  { id: 2,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
+  { id: 3,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A",           address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
+  { id: 1,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
+  { id: 2,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
+  { id: 3,  name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A",           address: "53C, 14th street, Empire state, USA", status: "Cancelled" }
 ];
 
 const tabs = ["All", "Pending", "Approved", "Cancelled"];
@@ -52,8 +50,9 @@ export default function ContractorVerification() {
     <div className="pl-0 pr-8 pt-0 pb-8">
       <TopBar />
 
-      <div className="flex items-center justify-between mb-4 mt-0 flex-wrap gap-3 text-left">
-        <h2 className="text-xl font-bold text-slate-800">Contractor Verification</h2>
+      {/* Yahan mt-[-20px] vapas add kar diya hai */}
+      <div className="flex items-center justify-between mb-4 mt-[-40px] flex-wrap gap-3 text-left">
+        <h2 className="text-xl font-bold text-slate-800 m-0">Contractor Verification</h2>
         <div className="flex gap-3">
           <input 
             type="text" 
@@ -78,7 +77,6 @@ export default function ContractorVerification() {
         ))}
       </div>
 
-      {/* Table left align karne ke liye margin-left hata di aur container ko screen ke edge se connect kar diya */}
       <div className="w-full overflow-x-auto pl-0">
         <table className="w-full text-[10px] border-separate border-spacing-y-2 text-left">
           <thead>

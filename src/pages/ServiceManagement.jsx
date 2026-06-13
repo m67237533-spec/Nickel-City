@@ -56,19 +56,19 @@ export default function ServiceManagement() {
   }
 
   return (
-    <div className="p-8 pt-0">
+    <div className=" pt-0">
       <div className="mb-2">
         <TopBar />
       </div>
       
-      <h2 className="text-xl font-bold text-slate-900 mt-2 mb-6 text-left ml-2">
+      {/* Heading: mt-[-20px] se upar shift kiya aur ml-2 se left align rakha */}
+      <h2 className="text-xl font-bold text-slate-900 mt-[-40px] mb-6 text-left ml-2 text-left">
         Service Management
       </h2>
 
       <div className="flex gap-5 flex-wrap ml-2">
         {initialServices.map((service) => (
           <div key={service.id} className="w-60 bg-white rounded-2xl shadow-lg border border-gray-100 text-left transition-all hover:shadow-xl">
-            {/* 🔥 Yahan p-2 add kiya hai taake image ke charon taraf padding ho jaye */}
             <div className="relative p-2">
               <img 
                 src={service.image} 

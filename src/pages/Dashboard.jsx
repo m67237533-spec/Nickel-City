@@ -40,13 +40,13 @@ function CustomTooltip({ active, payload }) {
 
 function StatCard({ label, value, bg, icon }) {
   return (
-    <div className="bg-white rounded-2xl p-5 flex items-center gap-4 flex-1 min-w-[160px] shadow-sm border border-gray-100">
-      <div className={`w-12 h-12 rounded-full ${bg} flex items-center justify-center flex-shrink-0`}>
-        <img src={icon} alt={label} className="w-6 h-6 object-contain" />
+    <div className="bg-white rounded-1.5xl p-4 flex items-center gap-3 flex-1 min-w-[160px] min-h-[80px] shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
+      <div className={`w-10 h-10 rounded-full ${bg} flex items-center justify-center flex-shrink-0`}>
+        <img src={icon} alt={label} className="w-5 h-5 object-contain" />
       </div>
       <div className="text-left">
-        <div className="text-2xl font-bold text-slate-800">{value}</div>
-        <div className="text-xs text-gray-400 mt-0.5">{label}</div>
+        <div className="text- font-bold text-slate-800">{value}</div>
+        <div className="text-[10px] text-gray-400 mt-0">{label}</div>
       </div>
     </div>
   );
@@ -54,24 +54,20 @@ function StatCard({ label, value, bg, icon }) {
 
 export default function DashboardPage() {
   return (
-    <div className="pt-0 px-5">
-      {/* Top Bar Wrapper */}
+    <div className="pt-0">
       <div className="mb-0">
         <TopBar />
       </div>
-      
-      {/* 🔥 Dashboard Heading (Aligned with top and left) */}
-      <h2 className="text-xl font-extrabold text-slate-900 mt-2 mb-6 text-left ml-2">
+
+      <h2 className="text-xl font-bold text-slate-900 mt-[-40px] mb-6 text-left ml-2">
         Dashboard
       </h2>
 
-      {/* Stat Cards */}
       <div className="flex gap-4 flex-wrap mb-6">
         {stats.map(s => <StatCard key={s.label} {...s} />)}
       </div>
 
-      {/* Chart Section */}
-      <div className="bg-white rounded-2xl p-6 shadow-ml border border-gray-150">
+      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
         <div className="flex justify-end items-center gap-2 mb-4">
           <span className="text-xs text-gray-400">Provisions Month</span>
           <span className="text-xs font-semibold text-slate-800 bg-slate-50 border border-gray-200 rounded-lg px-3 py-1">

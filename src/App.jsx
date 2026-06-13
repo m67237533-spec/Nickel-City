@@ -26,7 +26,7 @@ export default function App() {
   const [showUpdatePopup, setShowUpdatePopup] = useState(false);
   
   const [adminData, setAdminData] = useState({
-    name: "Admin Admin",
+    name: "Admin",
     email: "admin.admin@gmail.com",
     phone: "+0123456789",
     avatar: "images/profile.jpg",
@@ -58,30 +58,30 @@ export default function App() {
             <div className="p-4 pb-4 pt-2 flex justify-between items-center">
               <h1 className="text-[35px] font-bold text-[#222] tracking-tight pl-2 mt-2">Welcome Back, Admin!</h1>
               
-              <div className="flex items-center gap-2">
+              <div className="flex items-center ">
                 <button 
                   onClick={() => { setPreviousActive(active); setActive("Notifications"); }} 
                   className="w-10 h-10 rounded-xl flex items-center justify-center border-none bg-[#EEF4FB] cursor-pointer hover:bg-blue-100 transition-colors"
                 >
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="#1866B4" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#1866B4" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
                   </svg>
                 </button>
                 
                 <div 
                   onClick={() => { setPreviousActive(active); setActive("Profile"); }} 
-                  className="flex items-center gap-3 px-4 py-2 rounded-xl hover:border-gray-200 transition-colors cursor-pointer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl hover:border-gray-200 transition-colors cursor-pointer"
                 >
-                  <img src={adminData.avatar} className="w-12 h-12 rounded-xl object-cover" alt="Admin" />
+                  <img src={adminData.avatar} className="w-11 h-11 rounded-xl object-cover" alt="Admin" />
                   <div className="text-left">
                     <h4 className="font-bold text-xs text-slate-800">{adminData.name}</h4>
-                    <p className="text-[18px] text-gray-400">{adminData.email}</p>
+                    <p className="text-[13px] text-gray-400">{adminData.email}</p>
                   </div>
                 </div>
               </div>
             </div>
             {/* Horizontal Separator Line */}
-            <div className="w-full h-[1px] bg-gray-200 mb-6"></div>
+            <div className="w-full h-[1px] bg-gray-100 mb-6"></div>
           </div>
         )}
 

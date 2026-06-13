@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Search } from "lucide-react"; // Search icon import kiya
-import ReportedJobDetail from "./ReportedJobDetail"; 
+import { Search } from "lucide-react";
+import ReportedJobDetail from "./ReportedJobDetail";
 
 const reportedJobs = Array.from({ length: 3 }, (_, index) => ({
   id: index,
@@ -13,7 +13,7 @@ const reportedJobs = Array.from({ length: 3 }, (_, index) => ({
 
 export default function JobReport() {
   const [search, setSearch] = useState("");
-  const [selectedJob, setSelectedJob] = useState(null); 
+  const [selectedJob, setSelectedJob] = useState(null);
 
   const filteredJobs = reportedJobs.filter((job) =>
     job.title.toLowerCase().includes(search.toLowerCase())
@@ -24,58 +24,62 @@ export default function JobReport() {
   }
 
   return (
-    <div className="w-full p-8 bg-[#F8F8F8]">
-      {/* Header with Search Bar and Icon */}
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-slate-800">Job Report</h2>
-        <div className="relative w-full md:w-[600px]">
-          {/* Icon Container */}
+    // 'pt-0' se top ki extra padding khatam ho jayegi
+    <div className="w-full px-4 md:px-8  pb-6 min-h-screen">
+      
+      {/* Header ko upar shift karne ke liye negative margin */}
+      <div className="max-w-[1000px] mx-auto flex flex-col md:flex-row justify-between items-center mb-4 -mt-2 gap-4">
+        <h2 className="text-2xl font-bold text-slate-800 w-full md:w-auto">Job Report</h2>
+        
+        <div className="relative w-full md:w-[500px]">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="Search jobs..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full border border-gray-200 rounded-xl pl-12 pr-4 py-4 text-sm outline-none shadow-sm focus:border-blue-400 transition-all"
+            className="w-full border border-gray-200 rounded-xl pl-12 pr-4 py-3 text-sm outline-none shadow-sm focus:border-blue-400"
           />
         </div>
       </div>
 
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {filteredJobs.map((job) => (
+      {/* Cards container */}
+      <div className="flex flex-wrap gap-4 w-full max-w-[1000px] mx-auto">
+        {filteredJobs.slice(0, 3).map((job) => (
           <div
             key={job.id}
             onClick={() => setSelectedJob(job)}
-            className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:border-blue-300 transition-all cursor-pointer flex flex-col min-h-[210px]"
+            className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:border-blue-300 transition-all cursor-pointer flex flex-col min-h-[140px] w-[260px]"
           >
-            {/* ... rest of the card code same as before ... */}
+            {/* Card Content same as before */}
             <div className="flex justify-between items-start mb-3">
-              <div className="text-left">
-                <h3 className="font-bold text-slate-900 text-sm leading-none">{job.title}</h3>
-                <p className="text-[10px] text-gray-400 mt-1">500 sq ft</p>
-                <div className="mt-2 text-[10px] text-gray-500 font-medium leading-tight">
+              <div className="text-left overflow-hidden">
+                <h3 className="font-bold text-slate-900 text-sm truncate">{job.title}</h3>
+                <p className="text-[9px] text-gray-400 mt-0.5">500 sq ft</p>
+                <div className="mt-2 text-[10px] text-gray-500 font-medium">
                   <p>{job.date}</p>
-                  <p className="text-gray-500 mt-0.5 truncate max-w-[140px]">{job.address}</p>
+                  <p className="text-gray-500 mt-0.5 truncate">{job.address}</p>
                 </div>
               </div>
-              <div className="text-right">
-                <span className="px-3 py-1 rounded-full text-[10px] font-bold border flex items-center justify-center min-w-[75px] text-red-600 bg-red-50 border-red-200">
+              <div className="text-right flex-shrink-0 ml-2">
+                <span className="px-2 py-0.5 rounded-full text-[9px] font-bold border text-red-600 bg-red-50 border-red-200">
                   {job.status}
                 </span>
-                <p className="font-black text-sm text-slate-900 mt-2 mb-0">${job.price}<span className="text-[9px] text-gray-400 font-normal"><br />/min</span></p>
+                <p className="font-black text-sm text-slate-900 mt-2">${job.price}<span className="text-[9px] text-gray-400 font-normal"><br /> /min</span></p>
               </div>
             </div>
 
             <div className="mt-auto border-t pt-3">
-              <p className="text-[9px] font-bold text-blue-600 flex items-center gap-1 mb-2">📎 attachments</p>
+              <p className="text-[9px] font-bold text-blue-600 mb-1.5 flex items-center gap-1">
+                <span className="text-[12px]">📎</span> attachments
+              </p>
               <div className="flex gap-1.5">
                 {[1, 2, 3].map((i) => (
                   <img 
                     key={i} 
                     src={job.title === "Lawn Mowing" ? `/images/job.${i}.jpg` : `/images/m.${i}.jpg`} 
                     alt="job-img" 
-                    className="w-14 h-12 rounded-lg object-cover border border-slate-100" 
+                    className="w-12 h-12 rounded-lg object-cover border border-slate-100" 
                   />
                 ))}
               </div>
