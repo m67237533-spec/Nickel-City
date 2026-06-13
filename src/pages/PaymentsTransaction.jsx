@@ -6,6 +6,10 @@ const initialTransactions = [
   { id: 2, user: "James Anderson", phone: "+0123456789", service: "Snow Removal", contractor: "John Doe", dateTime: "15 September, 2025 | 10:00 PM", payment: "$24", commission: "-$2.5", status: "Refunded" },
   { id: 3, user: "James Anderson", phone: "+0123456789", service: "Lawn Mowing", contractor: "John Doe", dateTime: "15 September, 2025 | 10:00 PM", payment: "$24", commission: "$4.80", status: "Transferred" },
   { id: 4, user: "James Anderson", phone: "+0123456789", service: "Snow Removal", contractor: "John Doe", dateTime: "15 September, 2025 | 10:00 PM", payment: "$24", commission: "-$2.5", status: "Refund" },
+  { id: 5, user: "James Anderson", phone: "+0123456789", service: "Lawn Mowing", contractor: "John Doe", dateTime: "15 September, 2025 | 10:00 PM", payment: "$24", commission: "$4.80", status: "Transferred" },
+  { id: 6, user: "James Anderson", phone: "+0123456789", service: "Snow Removal", contractor: "John Doe", dateTime: "15 September, 2025 | 10:00 PM", payment: "$24", commission: "-$2.5", status: "Refunded" },
+  { id: 7, user: "James Anderson", phone: "+0123456789", service: "Lawn Mowing", contractor: "John Doe", dateTime: "15 September, 2025 | 10:00 PM", payment: "$24", commission: "$4.80", status: "Transferred" },
+  { id: 8, user: "James Anderson", phone: "+0123456789", service: "Snow Removal", contractor: "John Doe", dateTime: "15 September, 2025 | 10:00 PM", payment: "$24", commission: "-$2.5", status: "Refund" }
 ];
 
 const stats = [
@@ -43,8 +47,8 @@ export default function PaymentsTransaction() {
   };
 
   return (
-   <div className="w-full min-h-screen flex flex-col box-border font-sans antialiased ">
-      
+    <div className="w-full min-h-screen flex flex-col box-border font-sans antialiased ">
+
       {/* Header & Search */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 w-full">
         <h2 className="text-2xl font-bold text-slate-800 m-0 tracking-tight">Payment & Transaction</h2>
