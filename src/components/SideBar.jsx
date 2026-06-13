@@ -53,7 +53,7 @@ export default function Sidebar({ active, setActive, onLogoutClick }) {
                   setActive(label);
                   if (window.innerWidth < 768) setIsOpen(false); // Mobile par click karte hi menu band
                 }}
-                className={`w-full flex items-center gap-4 px-4 py-2.5 mb-2 rounded-xl text-[11px] transition-all border-none cursor-pointer
+                className={`w-full flex items-center gap-4 px-4 py-2.5 mb-2  text-[11px] transition-all border-none cursor-pointer
                 ${isActive ? "bg-white text-[#1866B4] shadow-md" : "text-white hover:bg-white/10"}`}
               >
                 <img

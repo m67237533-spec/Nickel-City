@@ -310,7 +310,7 @@ const styles = {
     flex: 1,
     padding: "32px 40px",
     background: "#f8fafc",
-    fontFamily: "'Inter', 'Segoe UI', sans-serif",
+    fontFamily: "'Inter', 'SF Pro', sans-serif",
     boxSizing: "border-box",
     minHeight: "100%",
   },
