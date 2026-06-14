@@ -9,15 +9,10 @@ const users = [
   { id: 6, name: "James Anderson", email: "james.anderson@gmail.com", phone: "+0123456789", country: "United State", state: "California", city: "Los Angeles", address: "53C, 14th street, Empire state, USA", status: "Unblock" },
   { id: 7, name: "James Anderson", email: "james.anderson@gmail.com", phone: "+0123456789", country: "United State", state: "California", city: "Los Angeles", address: "53C, 14th street, Empire state, USA", status: "Block" },
   { id: 8, name: "James Anderson", email: "james.anderson@gmail.com", phone: "+0123456789", country: "United State", state: "California", city: "Los Angeles", address: "53C, 14th street, Empire state, USA", status: "Block" },
-   { id: 7, name: "James Anderson", email: "james.anderson@gmail.com", phone: "+0123456789", country: "United State", state: "California", city: "Los Angeles", address: "53C, 14th street, Empire state, USA", status: "Block" },
-  { id: 8, name: "James Anderson", email: "james.anderson@gmail.com", phone: "+0123456789", country: "United State", state: "California", city: "Los Angeles", address: "53C, 14th street, Empire state, USA", status: "Block" },
-    { id: 8, name: "James Anderson", email: "james.anderson@gmail.com", phone: "+0123456789", country: "United State", state: "California", city: "Los Angeles", address: "53C, 14th street, Empire state, USA", status: "Block" },
-
 ];
 
-export default function UserManagement() {
+export default function UserManagement({ onUserClick }) {
   return (
-    // mt-[-20px] add kiya hai heading ko upar karne ke liye
     <div className="w-full pt-0 pl-0 pr-8 mt-[-20px]"> 
       
       <div className="flex justify-between items-center mb-4 flex-wrap gap-3">
@@ -51,7 +46,11 @@ export default function UserManagement() {
             {users.map((u, index) => {
               const isColored = index % 2 === 0;
               return (
-                <tr key={u.id} className="cursor-pointer transition-colors">
+                <tr 
+                  key={u.id + index} 
+                  onClick={() => onUserClick(u)}
+                  className="cursor-pointer hover:bg-slate-50 transition-colors"
+                >
                   <td className={`px-3 py-2 whitespace-nowrap ${isColored ? "bg-[#F3F7FB] rounded-l-lg" : ""}`}>
                     <div className="flex items-center gap-2">
                       <img src={"/images/face.1.jpg"} alt="avatar" className="w-5 h-5 rounded-full object-cover" />

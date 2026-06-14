@@ -36,7 +36,7 @@ export default function ContractorDetail({ contractor, onBack }) {
               <div>
                 <div className="text-base font-bold text-[#1e293b]">{contractor?.name || "James Anderson"}</div>
                 <div className="text-sm text-slate-400">{contractor?.email || "james.anderson@gmail.com"}</div>
-                {/* <div className="text-sm text-slate-400">{contractor?.number || "+0123456789"}</div> */}
+                <div className="text-sm text-slate-400">{contractor?.number || "+0123456789"}</div>
               </div>
             </div>
 
@@ -79,7 +79,7 @@ export default function ContractorDetail({ contractor, onBack }) {
               onClick={() => setIsBlocked(!isBlocked)}
               className="w-full md:w-56 py-3.5 rounded-xl text-white text-xs font-bold bg-[#1e62c9] hover:bg-[#1652ab] cursor-pointer"
             >
-              {isBlocked ? "Unblock Contractor" : "Block Contractor"}
+              {isBlocked ? "Unblock User" : "Block User"}
             </button>
           </div>
 

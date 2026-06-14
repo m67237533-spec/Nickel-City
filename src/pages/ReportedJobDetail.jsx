@@ -2,10 +2,10 @@ import React from "react";
 
 export default function ReportedJobDetail({ job, onBack }) {
   return (
-    <div className="w-full min-h-screen bg-[#F8F8F8] p-8 flex flex-col box-border font-sans antialiased">
+    <div className="w-full min-h-screen  p- flex flex-col box-border font-sans antialiased">
       
       {/* Main Details Card Box */}
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-solid border-slate-100/60 box-border w-full">
+      <div className=" border-slate-100/60 box-border w-full">
         
         {/* Back Button + Title + Action Buttons */}
         <div className="flex justify-between items-start mb-6 flex-wrap gap-4 w-full">
@@ -16,6 +16,7 @@ export default function ReportedJobDetail({ job, onBack }) {
             >
               <span className="text-sm font-bold">←</span>
             </button>
+            
             <h2 className="text-xl font-bold text-slate-800 m-0 tracking-tight">Details</h2>
           </div>
           
@@ -24,14 +25,14 @@ export default function ReportedJobDetail({ job, onBack }) {
               {/* Refund Button */}
               <button 
                 onClick={() => alert("Refunded successfully")}
-                className="px-5 py-2 bg-[#222] text-white rounded-xl font-bold text-xs border-none cursor-pointer hover:bg-black shadow-xs transition-colors outline-none"
+                className="px-10 py-3 bg-[#222] text-white rounded-xl font-bold text-xs border-none cursor-pointer hover:bg-black shadow-xs transition-colors outline-none"
               >
                 Refund
               </button>
               {/* Pay Contractor Button */}
               <button 
                 onClick={() => alert("Payment sent to contractor")}
-                className="px-5 py-2 bg-[#1866B4] text-white rounded-xl font-bold text-xs border-none cursor-pointer hover:bg-blue-700 shadow-xs transition-colors outline-none"
+                className="px-10 py-3 bg-[#1866B4] text-white rounded-xl font-bold text-xs border-none cursor-pointer hover:bg-blue-700 shadow-xs transition-colors outline-none"
               >
                 Pay Contractor
               </button>
@@ -68,7 +69,7 @@ export default function ReportedJobDetail({ job, onBack }) {
             <span className="text-sm font-bold text-slate-800 tracking-tight">Service</span>
             <span className="text-xs text-slate-400 font-medium">{job?.title || "Lawn Mowing"}</span>
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-">
             <span className="text-sm font-bold text-slate-800 tracking-tight">Yard Size</span>
             <span className="text-xs text-slate-400 font-medium">{job?.yardSize || "500"} sq ft</span>
           </div>
@@ -79,6 +80,10 @@ export default function ReportedJobDetail({ job, onBack }) {
           <div className="flex flex-col gap-1">
             <span className="text-sm font-bold text-slate-800 tracking-tight">Date & Time</span>
             <span className="text-xs text-slate-400 font-medium">15 September, 2025 | 10:00 PM</span>
+          </div>
+             <div className="flex flex-col gap-1">
+            <span className="text-sm font-bold text-slate-800 tracking-tight">Phone Number</span>
+            <span className="text-xs text-slate-400 font-medium">+0123456789</span>
           </div>
         </div>
 
