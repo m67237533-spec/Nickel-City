@@ -75,12 +75,25 @@ export default function ContractorVerificationDetail({ contractor, onBack, onCan
             </>
           ) : (
             <div>
-              <p className="text-gray-400">Certifications</p>
-              <div className="flex gap-2 mt-1">
-                <div className="w-16 h-16 bg-gray-200 rounded border border-dashed"></div>
-                <div className="w-16 h-16 bg-gray-200 rounded border border-dashed"></div>
-                <div className="w-16 h-16 bg-gray-200 rounded border border-dashed"></div>
-              </div>
+              <p className="text-black font-bold">Certifications</p>
+             <div className="flex gap-2 mt-1">
+  {/* Yahan aap array map karke ya static images daal sakte hain */}
+  <img 
+    src="/images/cer.1.jpg" 
+    alt="Attachment 1" 
+    className="w-16 h-16 rounded border border-gray-300 object-cover" 
+  />
+  <img 
+    src="/images/cer.2.jpg" 
+    alt="Attachment 2" 
+    className="w-16 h-16 rounded border border-gray-300 object-cover" 
+  />
+  <img 
+    src="/images/cer.3.jpg" 
+    alt="Attachment 3" 
+    className="w-16 h-16 rounded border border-gray-300 object-cover" 
+  />
+</div>
             </div>
           )}
         </div>

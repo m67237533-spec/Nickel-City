@@ -15,7 +15,7 @@ export default function ContractorDetail({ contractor, onBack }) {
     <div className="w-full min-h-screen flex flex-col font-sans antialiased overflow-x-hidden">
       <TopBar />
        <div className="">
-          <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-slate-50">
+              <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-slate-50">
             ←
           </button>
         </div>
