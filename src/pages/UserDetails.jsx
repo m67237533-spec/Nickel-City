@@ -28,7 +28,7 @@ export default function ContractorDetail({ contractor, onBack }) {
           
           {/* Left Panel */}
           <div className="w-full">
-            <h2 className="text-xl font-bold text-[#1e293b] mb-6">Contractor Details</h2>
+            <h2 className="text-xl font-bold text-[#1e293b] mb-6">User Details</h2>
 
             {/* Info Section */}
             <div className="mb-8 p-4 flex items-center gap-4">
@@ -84,18 +84,50 @@ export default function ContractorDetail({ contractor, onBack }) {
           </div>
 
           {/* Right Sidebar Panel */}
-          <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 flex flex-col h-fit">
-            <div className="flex flex-col items-center text-center pb-5 border-b border-slate-100">
-              <img src="https://picsum.photos/seed/user/150/150" className="w-18 h-18 rounded-full mb-3" alt="User" />
-              <div className="text-base font-bold text-[#1e293b]">James Anderson</div>
-              <div className="text-xl font-bold text-[#1e293b] mt-2">$24</div>
-            </div>
-            <div className="pt-5 space-y-4 text-xs text-slate-500">
-              <p>Email: {contractor?.email || "james.anderson@gmail.com"}</p>
-              <p>Phone: {contractor?.phone || "+0123456789"}</p>
-              <p className="leading-relaxed">Address: {contractor?.address || "53C, 14th street, USA"}</p>
-            </div>
-          </div>
+          <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 flex flex-col h-fit w-80">
+  {/* Header Section */}
+  <div className="flex justify-between mb-4">
+    <span className="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Paid</span>
+    <span className="text-emerald-700 text-[10px] font-bold px-3 py-1 border border-emerald-500 rounded-full uppercase tracking-wider">Completed</span>
+  </div>
+
+  <div className="flex flex-col items-center text-center pb-5 border-b border-slate-100">
+    <img src="https://picsum.photos/seed/user/150/150" className="w-16 h-16 rounded-full mb-3 object-cover" alt="User" />
+    <div className="text-lg font-bold text-slate-900">John Deo</div>
+    <div className="text-sm text-slate-400 mb-2">Contractor</div>
+    <div className="text-2xl font-bold text-slate-900">$24</div>
+  </div>
+
+  {/* Contact Info Section */}
+  <div className="pt-5 space-y-4 text-sm text-slate-600">
+    <h3 className="font-bold text-slate-900 mb-3">Contact Info</h3>
+    
+    <div className="flex items-center gap-">
+      <span>✉️</span>
+      <p>{contractor?.email || "john.doe@gmail.com"}</p>
+    </div>
+    
+    <div className="flex items-center gap-3">
+      <span>📞</span>
+      <p>{contractor?.phone || "+0123456789"}</p>
+    </div>
+    
+    <div className="flex items-start gap-3">
+      <span>📍</span>
+      <p>{contractor?.address || "53C, 14th street, Empire state, USA"}</p>
+    </div>
+
+    <div className="flex items-center gap-3">
+      <span>🏢</span>
+      <p>Lawn Rangers</p>
+    </div>
+
+    <div className="flex items-center gap-3">
+      <span>🚜</span>
+      <p>Lawn Mowing</p>
+    </div>
+  </div>
+</div>
         </div>
       </div>
     </div>

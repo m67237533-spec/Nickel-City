@@ -3,6 +3,8 @@ import React, { useState } from "react";
 export default function EditService({ service, onBack }) {
   const [serviceName, setServiceName] = useState(service?.title || "Lawn Mowing");
   const [commission, setCommission] = useState(service?.commission || "20");
+  const [showSuccess, setShowSuccess] = useState(false);
+  
   const [stateBlocks, setStateBlocks] = useState([
     {
       id: 1,
@@ -22,22 +24,43 @@ export default function EditService({ service, onBack }) {
   ]);
 
   return (
-    <div className="p-8 min-h-screen">
-      
+    <div className="p-8 min-h-screen bg-white">
+      {/* SUCCESS POPUP MODAL */}
+      {showSuccess && (
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white rounded-[24px] p-10 w-[400px] flex flex-col items-center text-center shadow-2xl">
+            <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-6">
+              <span className="text-3xl text-green-500">✓</span>
+            </div>
+            <h3 className="text-2xl font-extrabold text-slate-900 mb-2">Successfully!</h3>
+            <p className="text-slate-500 mb-8 text-sm">Your service has been updated successfully.</p>
+            <button 
+              onClick={() => { setShowSuccess(false); onBack(); }}
+              className="w-full bg-[#1866B4] text-white py-4 rounded-[12px] font-bold hover:bg-[#155a9e] transition"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Header Section */}
       <div className="mb-8">
-        <button onClick={onBack} className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center mb-4">←</button>
+        <button onClick={onBack} className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center mb-4 hover:bg-gray-50">←</button>
         
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold text-slate-800">Edit {serviceName}</h2>
-          <button className="bg-[#1866B4] text-white px-8 py-3 rounded-xl font-bold text-[15px] shadow-[0_4px_12px_rgba(24,102,180,0.3)] hover:shadow-[0_6px_16px_rgba(24,102,180,0.4)] transition-shadow">
+          <button 
+            onClick={() => setShowSuccess(true)}
+            className="bg-[#1866B4] text-white px-8 py-3 rounded-xl font-bold text-[15px] shadow-[0_4px_12px_rgba(24,102,180,0.3)] hover:bg-[#155a9e] transition"
+          >
             Update Service
           </button>
         </div>
       </div>
 
       {/* Form Container */}
-      <div className="p-8">
+      <div className="p-8  rounded-2xl shadow-sm">
         <div className="grid grid-cols-2 gap-8 mb-8">
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-2">Service Name</label>
@@ -54,54 +77,38 @@ export default function EditService({ service, onBack }) {
 
         {/* Dynamic Blocks */}
         {stateBlocks.map((block) => (
-          <div key={block.id} className="mb-10 pb-6">
+          <div key={block.id} className="mb-10 pb-6 border-b border-gray-50">
             <div className="grid grid-cols-4 gap-6 items-start">
-              {/* State */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-2">State</label>
-                <select className="w-full p-3 border border-gray-200 rounded-xl mb-2">
-                   <option>{block.state}</option>
-                </select>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-[#1866B4] text-white text-xs px-3 py-1 rounded-full">{block.state} ×</span>
-                </div>
+                <select className="w-full p-3 border border-gray-200 rounded-xl mb-2"><option>{block.state}</option></select>
+                <div className="flex flex-wrap gap-2"><span className="bg-[#1866B4] text-white text-xs px-3 py-1 rounded-full">{block.state} ×</span></div>
               </div>
               
-              {/* City */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-2">City</label>
-                <select className="w-full p-3 border border-gray-200 rounded-xl mb-2">
-                  <option>Select city</option>
-                </select>
+                <select className="w-full p-3 border border-gray-200 rounded-xl mb-2"><option>Select city</option></select>
                 <div className="flex flex-wrap gap-2">
-                  {block.cities.map(city => (
-                    <span key={city} className="bg-[#1866B4] text-white text-xs px-3 py-1 rounded-full">{city} ×</span>
-                  ))}
+                  {block.cities.map(city => (<span key={city} className="bg-[#1866B4] text-white text-xs px-3 py-1 rounded-full">{city} ×</span>))}
                 </div>
               </div>
               
-              {/* Area Range */}
               <div className="space-y-3">
                 <label className="block text-xs font-bold text-slate-700">Area Range (sq ft)</label>
                 {block.ranges.map((r, i) => <input key={i} className="w-full p-3 border border-gray-200 rounded-xl" value={r.area} />)}
               </div>
               
-              {/* Price */}
               <div className="space-y-3">
                 <label className="block text-xs font-bold text-slate-700">Price</label>
                 {block.ranges.map((r, i) => (
                     <div key={i} className="flex gap-2">
                         <input className="w-full p-3 border border-gray-200 rounded-xl" value={r.price} />
-                        <button className="bg-black text-white rounded-full w-10 h-10 flex-shrink-0">✕</button>
+                        <button className="bg-slate-900 text-white rounded-full w-10 h-10 flex-shrink-0">✕</button>
                     </div>
                 ))}
               </div>
             </div>
-            
-            {/* ADD RANGE BUTTON SHIFTED TO RIGHT */}
-            <div className="flex justify-end mt-4">
-               <button className="text-[#1866B4] font-bold text-sm">+ Add Range</button>
-            </div>
+            <div className="flex justify-end mt-4"><button className="text-[#1866B4] font-bold text-sm">+ Add Range</button></div>
           </div>
         ))}
 

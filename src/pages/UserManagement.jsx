@@ -9,6 +9,8 @@ const users = [
   { id: 6, name: "James Anderson", email: "james.anderson@gmail.com", phone: "+0123456789", country: "United State", state: "California", city: "Los Angeles", address: "53C, 14th street, Empire state, USA", status: "Unblock" },
   { id: 7, name: "James Anderson", email: "james.anderson@gmail.com", phone: "+0123456789", country: "United State", state: "California", city: "Los Angeles", address: "53C, 14th street, Empire state, USA", status: "Block" },
   { id: 8, name: "James Anderson", email: "james.anderson@gmail.com", phone: "+0123456789", country: "United State", state: "California", city: "Los Angeles", address: "53C, 14th street, Empire state, USA", status: "Block" },
+  { id: 9, name: "James Anderson", email: "james.anderson@gmail.com", phone: "+0123456789", country: "United State", state: "California", city: "Los Angeles", address: "53C, 14th street, Empire state, USA", status: "Block" },
+  { id: 10, name: "James Anderson", email: "james.anderson@gmail.com", phone: "+0123456789", country: "United State", state: "California", city: "Los Angeles", address: "53C, 14th street, Empire state, USA", status: "Block" }
 ];
 
 export default function UserManagement({ onUserClick }) {
@@ -34,9 +36,9 @@ export default function UserManagement({ onUserClick }) {
       <div className="w-full overflow-x-auto">
         <table className="w-full text-[10px] border-separate border-spacing-y-2 text-left">
           <thead>
-            <tr className="text-black uppercase tracking-wider">
+            <tr className="uppercase tracking-wider">
               {["Name", "Email", "Phone number", "Country", "State", "City", "Address", "Status"].map(col => (
-                <th key={col} className="text-left px-3 py-2 font-bold whitespace-nowrap text-[11px] text-slate-500">
+                <th key={col} className="text-left px-3 py-2 font-bold whitespace-nowrap text-[11px] text-black">
                   {col}
                 </th>
               ))}
