@@ -54,7 +54,7 @@ export default function ContractorDetail({ contractor, onBack }) {
             <h3 className="text-sm font-bold text-[#1e293b] mb-4">Jobs Information</h3>
             <div className="flex gap-2 mb-8 overflow-x-auto whitespace-nowrap pb-2">
               {jobData.map((job) => (
-                <div key={job.id} className="bg-white rounded-2xl p-2 shadow-sm border border-gray-100 flex flex-col min-h-[140px] min-w-[260px] flex-shrink-0">
+                <div key={job.id} className="bg-white rounded-2xl p-2 shadow-sm border border-gray-100 flex flex-col min-h-[130px] min-w-[250px] flex-shrink-0">
                   <div className="flex justify-between items-start mb-3">
                     <div className="text-left overflow-hidden">
                       <h3 className="font-bold text-slate-900 text-sm truncate">{job.title}</h3>
