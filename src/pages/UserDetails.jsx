@@ -51,7 +51,7 @@ export default function ContractorDetail({ contractor, onBack }) {
             </div>
 
             {/* Jobs Section */}
-            <h3 className="text-sm font-bold text-[#1e293b] mb-4">Jobs Information</h3>
+<h3 className="text-xl font-bold text-[#1e293b] mb-4">Jobs Information</h3>
         <div className="flex gap-2 mb-8 overflow-x-auto whitespace-nowrap pb-2">
               {jobData.map((job) => (
                 <div key={job.id} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col min-h-[120px] min-w-[220px] flex-shrink-0">
