@@ -126,13 +126,13 @@ export default function ReportedJobDetail({ job, onBack }) {
             <div>
               <p className="text-xs font-bold text-slate-500 mb-2 uppercase">Attachments Before Job</p>
               <div className="flex gap-3">
-                {[1, 2, 3].map((i) => <img key={i} src={`/images/service.${i}.jpg`} className="w-14 h-14 rounded-xl object-cover bg-gray-100" alt="Before" />)}
+                {[1, 2, 3].map((i) => <img key={i} src={`/images/job.${i}.jpg`} className="w-14 h-14 rounded-xl object-cover bg-gray-100" alt="Before" />)}
               </div>
             </div>
             <div>
               <p className="text-xs font-bold text-slate-500 mb-2 uppercase">Attachments After Job</p>
               <div className="flex gap-3">
-                {[1, 2, 3].map((i) => <img key={i} src={`/images/service.${i}.jpg`} className="w-14 h-14 rounded-xl object-cover bg-gray-100" alt="After" />)}
+                {[1, 2, 3,].map((i) => <img key={i} src={`/images/job.${i}.jpg`} className="w-14 h-14 rounded-xl object-cover bg-gray-100" alt="After" />)}
               </div>
             </div>
           </div>

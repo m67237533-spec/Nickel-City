@@ -75,9 +75,9 @@ export default function JobManagement() {
           >
             <div className="flex justify-between items-start mb-2">
               <div className="text-left">
-                <h3 className="font-bold text-slate-900 text-[11px] leading-tight">Lawn Mowing</h3>
-                <p className="text-[9px] text-gray-400 mt-0.5">500 sq ft</p>
-                <div className="mt-2 text-[9px] text-gray-500 font-medium leading-tight">
+                <h3 className="font-bold text-slate-900 text-[14px] leading-tight">Lawn Mowing</h3>
+                <p className="text-[10px] text-gray-400 mt-0.5">500 sq ft</p>
+                <div className="mt-2 text-[10px] text-gray-500 font-medium leading-tight">
                   <p>Sep 25, 2025 | 09:00 AM</p>
                   <p className="text-gray-500 mt-0.5 truncate max-w-[100px]">{job.address}</p>
                 </div>
@@ -86,12 +86,12 @@ export default function JobManagement() {
                 <span className={`px-1.5 py-0.5 rounded-full text-[8px] font-bold border flex items-center justify-center min-w-[50px] ${getStatusClass(job.status)}`}>
                   {job.status}
                 </span>
-                <p className="font-black text-xs text-slate-900 mt-1.5 mb-0">${job.price}<span className="text-[8px] text-gray-400 font-normal"> <br /> /min</span></p>
+                <p className="font-black text-xs text-slate-900 mt-1.5 mb-0">${job.price}<span className="text-[9px] text-gray-400 font-normal"> <br /> /min</span></p>
               </div>
             </div>
 
             <div className="mt-auto border-t pt-2">
-              <p className="text-[10px] font-bold text-grey-900 flex items-center gap-1 mb-1.5">📎 attachments</p>
+              <p className="text-[10px] font-bold text-grey-700 flex items-center gap-1 mb-1.5">📎 attachments</p>
               <div className="flex gap-1">
                 {[1, 2, 3].map((i) => (
                   <img 
