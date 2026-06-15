@@ -39,7 +39,7 @@ export default function EditSnowRemoval({ service, onBack }) {
 
   return (
     <div style={styles.contentWrapper}>
-      {/* IMPROVED SUCCESS POPUP MODAL */}
+      {/* SUCCESS POPUP MODAL */}
       {showSuccess && (
         <div style={styles.overlay}>
           <div style={styles.modal}>
@@ -88,23 +88,24 @@ export default function EditSnowRemoval({ service, onBack }) {
 }
 
 const styles = {
-  contentWrapper: { flex: 1, padding: "32px 40px", fontFamily: "'Inter', sans-serif", boxSizing: "border-box" },
-  topNavigationRow: { marginBottom: "16px" },
+  contentWrapper: { flex: 1, padding: "12px 0px", fontFamily: "'Inter', sans-serif", boxSizing: "border-box" },
+  // Side padding kam karke 10px kar di hai
+  topNavigationRow: { marginBottom: "16px", padding: "0 10px" },
   backCircleBtn: { width: "36px", height: "36px", borderRadius: "50%", background: "#ffffff", border: "1px solid #e2e8f0", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" },
-  pageHeaderRow: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "28px" },
+  pageHeaderRow: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "28px", padding: "0 10px" },
   pageTitle: { fontSize: "22px", fontWeight: "700", color: "#1e293b", margin: 0 },
   updateServiceBtn: { background: "#1e62c9", color: "#ffffff", border: "none", padding: "12px 28px", borderRadius: "8px", fontSize: "14px", fontWeight: "600", cursor: "pointer" },
-  mainFormCard: { padding: "32px", background: "#fff", borderRadius: "16px" },
-  formGrid2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "28px", marginBottom: "24px" },
-  inputGroup: { display: "flex", flexDirection: "column", gap: "8px" },
+  mainFormCard: { padding: "0px", background: "#fff", borderRadius: "0px" },
+  formGrid2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "28px", marginBottom: "24px", padding: "0 10px" },
+  inputGroup: { display: "flex", flexDirection: "column", gap: "8px", padding: "0 10px" },
   inputLabel: { fontSize: "13px", fontWeight: "600", color: "#475569" },
   formInput: { width: "100%", padding: "12px 16px", border: "1px solid #cbd5e1", borderRadius: "8px", fontSize: "14px" },
   prefixWrapper: { position: "relative" },
   inputPrefix: { position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", color: "#64748b" },
   unitText: { fontSize: "14px", fontWeight: "500", color: "#475569" },
-  tableHeaderRow: { display: "flex", gap: "20px", paddingBottom: "12px", borderBottom: "1px solid #f1f5f9", marginBottom: "20px" },
+  tableHeaderRow: { display: "flex", gap: "20px", paddingBottom: "12px", borderBottom: "1px solid #f1f5f9", marginBottom: "20px", padding: "0 10px" },
   thText: { fontSize: "13px", fontWeight: "600", color: "#475569" },
-  blockWrapper: { marginBottom: "28px", paddingBottom: "20px", borderBottom: "1px solid #f8fafc" },
+  blockWrapper: { marginBottom: "28px", paddingBottom: "20px", borderBottom: "1px solid #f8fafc", padding: "0 10px" },
   blockFlexRow: { display: "flex", gap: "20px", alignItems: "flex-start" },
   selectContainer: { position: "relative", width: "100%" },
   customSelect: { width: "100%", padding: "12px 36px 12px 14px", border: "1px solid #cbd5e1", borderRadius: "8px", appearance: "none", cursor: "pointer" },
@@ -116,7 +117,7 @@ const styles = {
   addRangeActionRow: { display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "8px", marginTop: "16px", cursor: "pointer" },
   addRangeLabel: { fontSize: "13px", color: "#1e62c9", fontWeight: "600" },
   plusCircleBtn: { width: "24px", height: "24px", borderRadius: "50%", background: "#1e62c9", border: "none", color: "#fff", cursor: "pointer" },
-  addAnotherCityBtn: { background: "#1e62c9", color: "#fff", border: "none", padding: "14px 28px", borderRadius: "8px", fontWeight: "600", cursor: "pointer" },
+  addAnotherCityBtn: { background: "#1e62c9", color: "#fff", border: "none", padding: "14px 28px", borderRadius: "8px", fontWeight: "600", cursor: "pointer", marginLeft: "10px" },
   overlay: { position: "fixed", inset: 0, background: "rgba(15, 23, 42, 0.6)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 9999, backdropFilter: "blur(2px)" },
   modal: { background: "#ffffff", borderRadius: "24px", padding: "40px", textAlign: "center", width: "400px", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)" },
   successIconBox: { width: "64px", height: "64px", background: "#f0fdf4", color: "#22c55e", borderRadius: "50%", fontSize: "32px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" },

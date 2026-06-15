@@ -24,7 +24,7 @@ export default function EditService({ service, onBack }) {
   ]);
 
   return (
-    <div className="p-8 min-h-screen bg-white">
+    <div className=" min-h-screen ">
       {/* SUCCESS POPUP MODAL */}
       {showSuccess && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-50">
@@ -45,7 +45,7 @@ export default function EditService({ service, onBack }) {
       )}
 
       {/* Header Section */}
-      <div className="mb-8">
+      <div className="mb-">
         <button onClick={onBack} className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center mb-4 hover:bg-gray-50">←</button>
         
         <div className="flex justify-between items-center">
@@ -60,8 +60,8 @@ export default function EditService({ service, onBack }) {
       </div>
 
       {/* Form Container */}
-      <div className="p-8  rounded-2xl shadow-sm">
-        <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="p  rounded-2xl shadow-sm">
+        <div className="grid grid-cols-2 gap-8 mb-10">
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-2">Service Name</label>
             <input className="w-full p-3 border border-gray-200 rounded-xl" value={serviceName} onChange={(e) => setServiceName(e.target.value)} />

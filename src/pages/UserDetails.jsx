@@ -28,7 +28,7 @@ export default function ContractorDetail({ contractor, onBack }) {
           
           {/* Left Panel */}
           <div className="w-full">
-            <h2 className="text-xl font-bold text-[#1e293b] mb-6">User Details</h2>
+            <h2 className="text-xl font-bold text-[#1e293b] ">User Details</h2>
 
             {/* Info Section */}
             <div className="mb-8 p-4 flex items-center gap-4">
@@ -92,7 +92,7 @@ export default function ContractorDetail({ contractor, onBack }) {
   </div>
 
   <div className="flex flex-col items-center text-center pb-5 border-b border-slate-100">
-    <img src="https://picsum.photos/seed/user/150/150" className="w-16 h-16 rounded-full mb-3 object-cover" alt="User" />
+    <img src="/images/face.2.jpg" className="w-16 h-16 rounded-full mb-3 object-cover" alt="User" />
     <div className="text-lg font-bold text-slate-900">John Deo</div>
     <div className="text-sm text-slate-400 mb-2">Contractor</div>
     <div className="text-2xl font-bold text-slate-900">$24</div>

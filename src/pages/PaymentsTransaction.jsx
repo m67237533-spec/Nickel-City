@@ -95,8 +95,11 @@ export default function PaymentsTransaction() {
                     <tr key={t.id} className="hover:bg-slate-50 transition-colors">
                       <td className={`px-3 py-3 whitespace-nowrap font-bold text-slate-800 ${isColored ? "bg-[#F3F7FB] rounded-l-lg" : ""}`}>
                         <div className="flex items-center gap-2">
-                          <img src={`https://picsum.photos/seed/u${t.id}/60/60`} className="w-5 h-5 rounded-full" alt="" />
-                          {t.user}
+<img 
+  src="/images/face.1.jpg" 
+  className="w-5 h-5 rounded-full object-cover" 
+  alt="User" 
+/>                          {t.user}
                         </div>
                       </td>
                       <td className={`px-3 py-3 font-medium ${isColored ? "bg-[#F3F7FB]" : ""}`}>{t.phone}</td>
