@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TopBar from "../components/TopBar";
-import ContractorVerificationDetail from "./ContractorVerificationDetail";
+import ContractorVerificationDetail from "./ContractorDetail";
 
 const initialContractors = [
   { id: 1, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Block" },
