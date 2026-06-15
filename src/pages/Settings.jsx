@@ -31,7 +31,7 @@ export default function Settings({ initialView = "main" }) {
       
       {subView === "main" && (
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-slate-800">Settings</h2>
+          <h2 className="text-1xl font-bold text-slate-800">Settings</h2>
         </div>
       )}
 
