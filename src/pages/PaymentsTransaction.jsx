@@ -75,7 +75,7 @@ export default function PaymentsTransaction() {
         <div className="overflow-x-auto">
           <table className="w-full text-[10px] border-separate border-spacing-y-2 text-left">
             <thead>
-              <tr className="text-slate-400 font-bold uppercase tracking-wider">
+              <tr className="text-black-400 font-bold uppercase tracking-wider">
                 <th className="px-3 py-2">User Name</th>
                 <th className="px-3 py-2">Phone Number</th>
                 <th className="px-3 py-2">Service</th>
@@ -95,11 +95,11 @@ export default function PaymentsTransaction() {
                     <tr key={t.id} className="hover:bg-slate-50 transition-colors">
                       <td className={`px-3 py-3 whitespace-nowrap font-bold text-slate-800 ${isColored ? "bg-[#F3F7FB] rounded-l-lg" : ""}`}>
                         <div className="flex items-center gap-2">
-<img 
-  src="/images/face.1.jpg" 
-  className="w-5 h-5 rounded-full object-cover" 
-  alt="User" 
-/>                          {t.user}
+                          <img
+                            src="/images/face.1.jpg"
+                            className="w-5 h-5 rounded-full object-cover"
+                            alt="User"
+                          />                          {t.user}
                         </div>
                       </td>
                       <td className={`px-3 py-3 font-medium ${isColored ? "bg-[#F3F7FB]" : ""}`}>{t.phone}</td>

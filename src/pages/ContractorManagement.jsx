@@ -6,7 +6,11 @@ const initialContractors = [
   { id: 1, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
   { id: 2, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
   { id: 3, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A", address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
-  { id: 4, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" }
+  { id: 4, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
+  { id: 5, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
+  { id: 6, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
+  { id: 7, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A", address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
+  { id: 8, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" }
 ];
 
 const tabs = ["All", "Pending", "Approved", "Cancelled"];
@@ -78,7 +82,7 @@ export default function ContractorVerification() {
           <thead>
             <tr className="text-black uppercase tracking-wider">
               {["Name", "Email", "Phone", "Service", "Company", "Address", "Status", "Action"].map(col => (
-                <th key={col} className="px-3 py-2 font-bold text-[11px] text-slate-500">{col}</th>
+                <th key={col} className="px-3 py-2 font-bold text-[11px] text-black-500">{col}</th>
               ))}
             </tr>
           </thead>
