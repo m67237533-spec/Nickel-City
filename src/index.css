@@ -15,7 +15,8 @@ html, body, #root {
   width: 100%;
   background-color: #fff !important;
   color: #0f172a;
-  font-family: 'SF Pro', system-ui, sans-serif !important;
+  /* font-family: 'SF Pro', system-ui, sans-serif !important; */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 }
 .bg-f {
   background-color: #fff !important;
