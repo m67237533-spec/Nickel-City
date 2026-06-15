@@ -63,7 +63,7 @@ export default function ContractorVerification() {
         />
       </div>
 
-      <div className="flex gap-2 mb-5">
+      {/* <div className="flex gap-2 mb-5">
         {tabs.map(tab => (
           <button
             key={tab}
@@ -76,7 +76,7 @@ export default function ContractorVerification() {
             {tab}
           </button>
         ))}
-      </div>
+      </div> */}
 
       <div className="w-full overflow-x-auto">
         <table className="w-full text-[10px] border-separate border-spacing-y-2 text-left">
