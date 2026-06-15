@@ -34,17 +34,17 @@ export default function Notifications({ onBackClick }) {
   ];
 
   return (
-    <div className="p-6 bg-[#F8F8F8] min-h-screen">
+    <div className=" min-h-screen">
       {/* Top Welcome Header */}
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-[48px] font-bold text-[#222]">Welcome Back, Admin!</h1>
+        <h1 className="text-[35px] font-bold text-[#222]">Welcome Back, Admin!</h1>
         <div className="flex items-center gap-4">
           {/* Active / Highlighted Bell Icon */}
           <button className="w-10 h-10 bg-[#EEF4FB] rounded-lg flex items-center justify-center border-none cursor-pointer text-xl text-[#1866B4]">
             🔔
           </button>
-          <div className="flex items-center gap-3 bg-white px-3 py-2 rounded-lg shadow-sm">
-            <img src="https://i.pravatar.cc/100" alt="Admin" className="w-10 h-10 rounded-lg" />
+          <div className="flex items-center gap-3  px-3 py-2 ">
+            <img src="/images/profile.jpg" alt="Admin" className="w-10 h-10 rounded-lg" />
             <div>
               <h4 className="font-semibold text-sm">Admin</h4>
               <p className="text-xs text-gray-500">admin.admin@gmail.com</p>
@@ -57,7 +57,7 @@ export default function Notifications({ onBackClick }) {
       <div className="flex items-center gap-3 mb-6">
         <button
           onClick={onBackClick}
-          className="w-8 h-8 rounded-full border border-gray-200 bg-white flex items-center justify-center cursor-pointer text-slate-600 hover:bg-gray-50 text-sm font-bold shadow-sm"
+          className="w-8 h-8 rounded-full border border-gray-200 bg-grey flex items-center justify-center cursor-pointer text-slate-600 hover:bg-gray-50 text-sm font-bold shadow-sm"
         >
           ←
         </button>
