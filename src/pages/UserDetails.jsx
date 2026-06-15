@@ -32,7 +32,8 @@ export default function ContractorDetail({ contractor, onBack }) {
           
           {/* Left Panel */}
           <div className="w-full">
-            <h2 className="text-xl font-bold text-[#1e293b]">User Details</h2>
+            
+            <h2 className=" text-xl font-bold text-[#1e293b]">User Details</h2>
 
             {/* Info Section */}
             <div className="mb-8 p-4 flex items-center gap-4">

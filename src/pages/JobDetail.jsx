@@ -52,7 +52,7 @@ export default function JobDetail({ job, onBack, getStatusClass }) {
             >
               <span className="text-sm font-bold">←</span>
             </button>
-            <h2 className="text-xl font-bold text-slate-800 m-0 tracking-tight">Details</h2>
+            <h2 className="text-xl font-bold text-slate-800 m-0 tracking-tight ">Details</h2>
           </div>
           
           <div className="flex flex-col items-end gap-2.5">

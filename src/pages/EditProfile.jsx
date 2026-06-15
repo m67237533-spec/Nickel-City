@@ -3,7 +3,7 @@ import React from "react";
 export default function EditProfile({ adminData, setAdminData, onUpdateClick }) {
   return (
     // Yahan 'bg-white' aur 'p-8' add kar diya hai taake pura container white ho jaye
-    <div className="w-full flex flex-col items-start text-left bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+    <div className="w-full flex flex-col items-start text-left">
       
       {/* Title */}
       <div className="mb-6">
