@@ -67,20 +67,20 @@ export default function Settings({ initialView = "main" }) {
           </div>
           
           {/* Content Container with Shadow */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-50 w-full">
+          <div className="  w-full">
             {subView === "password" && (
               <form onSubmit={handlePasswordUpdate} className="space-y-5 max-w-xl">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-2">Current Password</label>
-                  <input type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} required className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm" />
+                  <input type="password" placeholder="**********" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} required className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm" />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-2">New Password</label>
-                  <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm" />
+                  <input type="password" placeholder="**********" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm" />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-2">Confirm Password</label>
-                  <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm" />
+                  <input type="password" placeholder="**********" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm" />
                 </div>
                 <button type="submit" className="w-full py-3.5 bg-[#1866B4] text-white rounded-xl font-bold text-sm hover:bg-blue-700 transition-colors">Update Password</button>
               </form>
