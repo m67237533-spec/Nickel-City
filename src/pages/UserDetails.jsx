@@ -28,7 +28,7 @@ export default function ContractorDetail({ contractor, onBack }) {
         </div> */}
 
         {/* Main Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr,320px] gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr,210px] gap-6">
           
           {/* Left Panel */}
           <div className="w-full">
