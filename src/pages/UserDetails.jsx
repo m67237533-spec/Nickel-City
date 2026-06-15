@@ -13,13 +13,18 @@ export default function ContractorDetail({ contractor, onBack }) {
 
   return (
     <div className="w-full min-h-screen flex flex-col font-sans antialiased overflow-x-hidden">
-      <TopBar />
        <div className="">
               <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-slate-50">
             ←
           </button>
         </div>
-      <div className="p-4 md:p-8 flex-1 w-full max-w-[1400px] mx-auto box-border">
+      <TopBar />
+       {/* <div className="">
+              <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-slate-50">
+            ←
+          </button>
+        </div> */}
+      <div className=" flex-1 w-full max-w-[1400px] mx-auto box-border">
         {/* Back Button */}
         {/* <div className="mb-6">
           <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-white flex items-center justify-center cursor-pointer hover:bg-slate-50">
@@ -28,7 +33,7 @@ export default function ContractorDetail({ contractor, onBack }) {
         </div> */}
 
         {/* Main Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr,210px] gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr,240px] gap-6">
           
           {/* Left Panel */}
           <div className="w-full">
@@ -116,8 +121,8 @@ export default function ContractorDetail({ contractor, onBack }) {
               <div className="flex items-center gap-3"><Mail size={16} /> <p>{contractor?.email || "john.doe@gmail.com"}</p></div>
               <div className="flex items-center gap-3"><Phone size={16} /> <p>{contractor?.phone || "+0123456789"}</p></div>
               <div className="flex items-start gap-3"><MapPin size={16} /> <p>{contractor?.address || "53C, 14th street, Empire state, USA"}</p></div>
-              <div className="flex items-center gap-3"><Building size={16} /> <p>Lawn Rangers</p></div>
-              <div className="flex items-center gap-3"><Tractor size={16} /> <p>Lawn Mowing</p></div>
+              {/* <div className="flex items-center gap-3"><Building size={16} /> <p>Lawn Rangers</p></div>
+              <div className="flex items-center gap-3"><Tractor size={16} /> <p>Lawn Mowing</p></div> */}
             </div>
           </div>
         </div>
