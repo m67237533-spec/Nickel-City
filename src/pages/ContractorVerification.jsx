@@ -82,7 +82,7 @@ export default function ContractorVerification() {
           <thead>
             <tr className="text-black uppercase tracking-wider">
               {["Name", "Email", "Phone", "Service", "Company", "Address", "Status", "Action"].map(col => (
-                <th key={col} className="px-3 py-2 font-bold text-[11px] text-slate-500">{col}</th>
+                <th key={col} className="px-3 py-2 font-bold text-[11px] text-black">{col}</th>
               ))}
             </tr>
           </thead>
