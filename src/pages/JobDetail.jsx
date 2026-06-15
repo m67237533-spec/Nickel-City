@@ -151,7 +151,7 @@ export default function JobDetail({ job, onBack, getStatusClass }) {
             </div>
             {isActive && (
               <div className="w-full md:w-[45%] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-solid border-slate-200 relative shadow-3xs">
-                <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/-78.8784,42.8864,13,0/400x160?access_token=mock" alt="Map View" className="w-full h-full object-cover opacity-80" />
+                <img src="/images/tracking.jpg" alt="Tracking" className="w-full h-full object-cover" />
               </div>
             )}
           </div>
