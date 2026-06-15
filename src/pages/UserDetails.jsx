@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Mail, Phone, MapPin, Building, Tractor, Pencil } from "lucide-react";
 import TopBar from "../components/TopBar";
 
-// Sample Job Data (Updated to match JobReport structure)
 const jobData = [
   { id: 1, title: "Lawn Mowing", status: "Completed", date: "Sep 25, 2025 | 09:00 AM", address: "53C, 14th street, Empire state, USA", price: "24", statusClass: "border-emerald-500 text-emerald-500 bg-emerald-50/30" },
   { id: 2, title: "Snow Removal", status: "Active", date: "Sep 26, 2025 | 10:00 AM", address: "53C, 14th street, Empire state, USA", price: "24", statusClass: "border-blue-500 text-blue-500 bg-blue-50/30" },
@@ -14,21 +14,25 @@ export default function ContractorDetail({ contractor, onBack }) {
   return (
     <div className="w-full min-h-screen flex flex-col font-sans antialiased overflow-x-hidden">
       <TopBar />
-      
-      <div className="p-4 md:p-8 flex-1 w-full max-w-[1400px] mx-auto box-border">
-        {/* Back Button */}
-        <div className="mb-6">
-          <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-white flex items-center justify-center cursor-pointer hover:bg-slate-50">
+       <div className="">
+          <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-slate-50">
             ←
           </button>
         </div>
+      <div className="p-4 md:p-8 flex-1 w-full max-w-[1400px] mx-auto box-border">
+        {/* Back Button */}
+        {/* <div className="mb-6">
+          <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-white flex items-center justify-center cursor-pointer hover:bg-slate-50">
+            ←
+          </button>
+        </div> */}
 
         {/* Main Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr,320px] gap-6">
           
           {/* Left Panel */}
           <div className="w-full">
-            <h2 className="text-xl font-bold text-[#1e293b] ">User Details</h2>
+            <h2 className="text-xl font-bold text-[#1e293b]">User Details</h2>
 
             {/* Info Section */}
             <div className="mb-8 p-4 flex items-center gap-4">
@@ -40,7 +44,7 @@ export default function ContractorDetail({ contractor, onBack }) {
               </div>
             </div>
 
-            {/* Jobs Section (Updated Card Style) */}
+            {/* Jobs Section */}
             <h3 className="text-sm font-bold text-[#1e293b] mb-4">Jobs Information</h3>
             <div className="flex flex-wrap gap-4 mb-8">
               {jobData.map((job) => (
@@ -63,11 +67,16 @@ export default function ContractorDetail({ contractor, onBack }) {
                   </div>
                   <div className="mt-auto border-t pt-3">
                     <p className="text-[9px] font-bold text-blue-600 mb-1.5 flex items-center gap-1">
-                      <span className="text-[12px]">📎</span> attachments
+                      <span>📎</span> attachments
                     </p>
                     <div className="flex gap-1.5">
                       {[1, 2, 3].map((i) => (
-                        <img key={i} src={`https://picsum.photos/seed/${job.id}${i}/100/100`} alt="job-img" className="w-12 h-12 rounded-lg object-cover border border-slate-100" />
+                        <img 
+                          key={i} 
+                          src={job.id === 2 ? `/images/m.${i}.jpg` : `/images/job.${i}.jpg`} 
+                          alt="job-img" 
+                          className="w-12 h-12 rounded-lg object-cover border border-slate-100" 
+                        />
                       ))}
                     </div>
                   </div>
@@ -84,50 +93,32 @@ export default function ContractorDetail({ contractor, onBack }) {
           </div>
 
           {/* Right Sidebar Panel */}
-          <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 flex flex-col h-fit w-80">
-  {/* Header Section */}
-  <div className="flex justify-between mb-4">
-    <span className="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Paid</span>
-    <span className="text-emerald-700 text-[10px] font-bold px-3 py-1 border border-emerald-500 rounded-full uppercase tracking-wider">Completed</span>
-  </div>
+          <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 flex flex-col h-fit w-60 relative">
+            <button className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white border border-gray-100 cursor-pointer flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors">
+              <Pencil size={14} className="text-gray-600" />
+            </button>
 
-  <div className="flex flex-col items-center text-center pb-5 border-b border-slate-100">
-    <img src="/images/face.2.jpg" className="w-16 h-16 rounded-full mb-3 object-cover" alt="User" />
-    <div className="text-lg font-bold text-slate-900">John Deo</div>
-    <div className="text-sm text-slate-400 mb-2">Contractor</div>
-    <div className="text-2xl font-bold text-slate-900">$24</div>
-  </div>
+            <div className="flex justify-between mb-4">
+              <span className="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Paid</span>
+              <span className="text-emerald-700 text-[10px] font-bold px-3 py-1 border border-emerald-500 rounded-full uppercase tracking-wider">Completed</span>
+            </div>
 
-  {/* Contact Info Section */}
-  <div className="pt-5 space-y-4 text-sm text-slate-600">
-    <h3 className="font-bold text-slate-900 mb-3">Contact Info</h3>
-    
-    <div className="flex items-center gap-">
-      <span>✉️</span>
-      <p>{contractor?.email || "john.doe@gmail.com"}</p>
-    </div>
-    
-    <div className="flex items-center gap-3">
-      <span>📞</span>
-      <p>{contractor?.phone || "+0123456789"}</p>
-    </div>
-    
-    <div className="flex items-start gap-3">
-      <span>📍</span>
-      <p>{contractor?.address || "53C, 14th street, Empire state, USA"}</p>
-    </div>
+            <div className="flex flex-col items-center text-center pb-5 border-b border-slate-100">
+              <img src="/images/face.2.jpg" className="w-16 h-16 rounded-full mb-3 object-cover" alt="User" />
+              <div className="text-lg font-bold text-slate-900">John Deo</div>
+              <div className="text-sm text-slate-400 mb-2">Contractor</div>
+              <div className="text-2xl font-bold text-slate-900">$24</div>
+            </div>
 
-    <div className="flex items-center gap-3">
-      <span>🏢</span>
-      <p>Lawn Rangers</p>
-    </div>
-
-    <div className="flex items-center gap-3">
-      <span>🚜</span>
-      <p>Lawn Mowing</p>
-    </div>
-  </div>
-</div>
+            <div className="pt-5 space-y-4 text-sm text-slate-600">
+              <h3 className="font-bold text-slate-900 mb-3">Contact Info</h3>
+              <div className="flex items-center gap-3"><Mail size={16} /> <p>{contractor?.email || "john.doe@gmail.com"}</p></div>
+              <div className="flex items-center gap-3"><Phone size={16} /> <p>{contractor?.phone || "+0123456789"}</p></div>
+              <div className="flex items-start gap-3"><MapPin size={16} /> <p>{contractor?.address || "53C, 14th street, Empire state, USA"}</p></div>
+              <div className="flex items-center gap-3"><Building size={16} /> <p>Lawn Rangers</p></div>
+              <div className="flex items-center gap-3"><Tractor size={16} /> <p>Lawn Mowing</p></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
