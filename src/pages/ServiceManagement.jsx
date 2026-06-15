@@ -2,6 +2,7 @@ import TopBar from "../components/TopBar";
 import { useState } from "react";
 import EditService from "./EditService";
 import EditSnowRemoval from "./EditSnowRemoval";
+import { Pencil } from "lucide-react";
 
 const initialServices = [
   {
@@ -75,12 +76,12 @@ export default function ServiceManagement() {
                 alt={service.title} 
                 className="w-full h-32 object-cover rounded-xl" 
               />
-              <button
-                onClick={() => setEditingService(service)}
-                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white border border-gray-100 cursor-pointer flex items-center justify-center shadow-md text-sm hover:bg-gray-50 transition-colors"
-              >
-                ✏️
-              </button>
+           <button
+  onClick={() => setEditingService(service)}
+  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white border border-gray-100 cursor-pointer flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors"
+>
+  <Pencil size={14} className="text-gray-600" />
+</button>
             </div>
             
             <div className="px-4 pb-4 pt-1 text-left">
