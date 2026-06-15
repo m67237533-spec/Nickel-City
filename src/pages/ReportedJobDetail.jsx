@@ -5,7 +5,7 @@ export default function ReportedJobDetail({ job, onBack }) {
   const [refundType, setRefundType] = useState("100");
 
   return (
-    <div className="w-full min-h-screen p-6 flex flex-col box-border font-sans antialiased">
+    <div className="w-full min-h-screen  flex flex-col box-border font-sans antialiased">
       
       {/* Refund Modal */}
       {isRefundModalOpen && (
