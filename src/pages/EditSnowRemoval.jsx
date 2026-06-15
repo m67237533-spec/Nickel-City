@@ -309,7 +309,7 @@ const styles = {
   contentWrapper: {
     flex: 1,
     padding: "32px 40px",
-    background: "#f8fafc",
+    // background: "#f8fafc",
     fontFamily: "'Inter', 'SF Pro', sans-serif",
     boxSizing: "border-box",
     minHeight: "100%",
@@ -356,11 +356,7 @@ const styles = {
     boxShadow: "0 4px 6px -1px rgba(30, 98, 201, 0.2)"
   },
   mainFormCard: {
-    background: "#ffffff",
-    borderRadius: "12px",
     padding: "32px",
-    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04)",
-    border: "1px solid #f1f5f9"
   },
   formGrid2: {
     display: "grid",

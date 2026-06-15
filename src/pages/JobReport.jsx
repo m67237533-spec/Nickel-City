@@ -29,14 +29,15 @@ export default function JobReport() {
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 -mt-2 gap-4">
         <h2 className="text-xl font-bold text-slate-800">Job Report</h2>
         
-        <div className="relative w-full md:w-[400px]">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+        {/* UPDATED SEARCH INPUT: Width, Height, and Shadow */}
+        <div className="relative w-full md:w-[600px]"> 
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
             type="text"
             placeholder="Search jobs..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-2.5 text-xs outline-none shadow-sm focus:border-blue-400"
+            className="w-full border border-gray-200 rounded-xl pl-12 pr-4 py-3.5 text-sm outline-none shadow-md focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
           />
         </div>
       </div>
@@ -48,6 +49,7 @@ export default function JobReport() {
             onClick={() => setSelectedJob(job)}
             className="bg-white rounded-2xl p-5 shadow-lg border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all cursor-pointer flex flex-col min-h-[160px] w-[290px]"
           >
+            {/* ... card content same rahega */}
             <div className="flex justify-between items-start mb-3">
               <div className="text-left overflow-hidden">
                 <h3 className="font-bold text-slate-900 text-sm truncate">{job.title}</h3>
