@@ -9,9 +9,9 @@ export default function ContractorVerificationDetail({ contractor, onBack, onCan
     <div className="p-0">
       {/* Top Header */}
       <div className="flex flex-col items-start gap-2 mb-6">
-        <button onClick={onBack} className="p-2 bg-gray-100 rounded-full hover:bg-gray-200">
-          ←
-        </button>
+          <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-slate-50">
+            ←
+          </button>
         
         {/* Updated Header: Details Left, Status Right */}
         <div className="flex items-center justify-between w-full">
@@ -38,38 +38,38 @@ export default function ContractorVerificationDetail({ contractor, onBack, onCan
         {/* Grid Info */}
         <div className="grid grid-cols-4 gap-6 text-sm mb-8">
           <div>
-            <p className="text-gray-400">Phone Number</p>
-            <p className="font-semibold">{contractor.phone}</p>
+            <p className="text-black font-bold">Phone Number</p>
+            <p className="font-semibold text-gray-400">{contractor.phone}</p>
           </div>
           <div>
-            <p className="text-gray-400">Services</p>
-            <p className="font-semibold">{contractor.service}</p>
+            <p className="text-black font-bold">Services</p>
+            <p className="font-semibold text-gray-400">{contractor.service}</p>
           </div>
           <div>
-            <p className="text-gray-400">Service Area</p>
-            <p className="font-semibold">Lorem ipsum dolor...</p>
+            <p className="text-black font-bold">Service Area</p>
+            <p className="font-semibold text-gray-400">Lorem ipsum dolor...</p>
           </div>
           <div>
-            <p className="text-gray-400">Address</p>
-            <p className="font-semibold">{contractor.address}</p>
+            <p className="text-black font-bold">Address</p>
+            <p className="font-semibold text-gray-400">{contractor.address}</p>
           </div>
         </div>
 
         {/* Dynamic Fields */}
         <div className="flex gap-12 text-sm mb-8">
           <div>
-            <p className="text-gray-400">Company Name</p>
-            <p className="font-semibold">{contractor.company}</p>
+            <p className="text-black font-bold">Company Name</p>
+            <p className="font-semibold text-gray-400">{contractor.company}</p>
           </div>
           
           {isPending || isCancelled ? (
             <>
               <div>
-                <p className="text-gray-400">Article</p>
+                <p className="text-black font-bold">Article</p>
                 <img src="/images/article.1.jpg" alt="Article" className="w-14 h-14 rounded mt-1 border border-dashed object-cover" />
               </div>
               <div>
-                <p className="text-gray-400">EIN Letter</p>
+                <p className="text-black font-bold">EIN Letter</p>
                 <img src="/images/article.2.jpg" alt="EIN Letter" className="w-14 h-14 rounded mt-1 border border-dashed object-cover" />
               </div>
             </>

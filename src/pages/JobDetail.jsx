@@ -46,12 +46,9 @@ export default function JobDetail({ job, onBack, getStatusClass }) {
         {/* Back Button + Title + Status Badge Row */}
         <div className="flex justify-between items-start mb-6 flex-wrap gap-4 w-full">
           <div className="flex items-center gap-3">
-            <button
-              onClick={onBack}
-              className="w-8 h-8 rounded-full border border-solid border-slate-200 bg-white flex items-center justify-center cursor-pointer text-slate-500 shadow-2xs hover:bg-slate-50 transition-colors outline-none"
-            >
-              <span className="text-sm font-bold">←</span>
-            </button>
+              <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-slate-50">
+            ←
+          </button>
             <h2 className="text-xl font-bold text-slate-800 m-0 tracking-tight ">Details</h2>
           </div>
           

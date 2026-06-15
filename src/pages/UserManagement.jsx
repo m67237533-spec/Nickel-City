@@ -53,19 +53,19 @@ export default function UserManagement({ onUserClick }) {
                   onClick={() => onUserClick(u)}
                   className="cursor-pointer hover:bg-slate-50 transition-colors"
                 >
-                  <td className={`px-3 py-2 whitespace-nowrap ${isColored ? "bg-[#F3F7FB] rounded-l-lg" : ""}`}>
+                  <td className={`px-3 py-2 whitespace-nowrap ${isColored ? "bg-[#F3F7FB] text-gray-500 rounded-l-lg" : ""}`}>
                     <div className="flex items-center gap-2">
                       <img src={"/images/face.1.jpg"} alt="avatar" className="w-5 h-5 rounded-full object-cover" />
-                      <span className="font-bold text-black">{u.name}</span>
+                      <span className="font-bold text-gray-500">{u.name}</span>
                     </div>
                   </td>
-                  <td className={`px-3 py-2 font-medium ${isColored ? "bg-[#F3F7FB]" : ""}`}>{u.email}</td>
-                  <td className={`px-3 py-2 font-medium ${isColored ? "bg-[#F3F7FB]" : ""}`}>{u.phone}</td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{u.country}</td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{u.state}</td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{u.city}</td>
-                  <td className={`px-3 py-2 max-w-[150px] truncate ${isColored ? "bg-[#F3F7FB]" : ""}`}>{u.address}</td>
-                  <td className={`px-3 py-2 whitespace-nowrap ${isColored ? "bg-[#F3F7FB] rounded-r-lg" : ""}`}>
+                  <td className={`px-3 py-2 font-medium ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{u.email}</td>
+                  <td className={`px-3 py-2 font-medium ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{u.phone}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{u.country}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{u.state}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{u.city}</td>
+                  <td className={`px-3 py-2 max-w-[150px] truncate ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{u.address}</td>
+                  <td className={`px-3 py-2 whitespace-nowrap ${isColored ? "bg-[#F3F7FB] text-gray-500 rounded-r-lg" : ""}`}>
                     <span className={`px-3 py-1 rounded-full text-[9px] font-bold text-white ${u.status === 'Unblock' ? 'bg-red-500' : 'bg-green-500'}`}>
                       {u.status}
                     </span>

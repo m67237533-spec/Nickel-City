@@ -3,23 +3,26 @@ import TopBar from "../components/TopBar";
 import ContractorVerificationDetail from "./ContractorVerificationDetail";
 
 const initialContractors = [
-  { id: 1, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
-  { id: 2, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
-  { id: 3, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A", address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
-  { id: 4, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
-  { id: 5, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
-  { id: 6, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
-  { id: 7, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A", address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
-  { id: 8, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" }
+  { id: 1, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Block" },
+  { id: 2, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Block" },
+  { id: 3, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A", address: "53C, 14th street, Empire state, USA", status: "Block" },
+  { id: 4, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Block" },
+   { id: 5, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Block" },
+  { id: 6, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Block" },
+  { id: 7, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A", address: "53C, 14th street, Empire state, USA", status: "Block" },
+  { id: 8, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Block" }
 ];
 
-const tabs = ["All", "Pending", "Approved", "Cancelled"];
+const tabs = [""];
 
 function statusStyle(status) {
-  if (status === "Pending") return "text-yellow-500 bg-yellow-50";
-  if (status === "Approved") return "text-green-600 bg-green-50";
-  if (status === "Cancelled") return "text-red-500 bg-red-50";
-  return "";
+  // Block style button classes
+  const base = "px-4 py-1.5 rounded-lg font-bold text-[10px] border-none cursor-pointer w-full text-center transition-colors";
+  // if (status === "Pending") return `${base} text-yellow-600 bg-yellow-100 hover:bg-yellow-200`;
+  // if (status === "Approved") return `${base} text-green-600 bg-green-100 hover:bg-green-200`;
+  // if (status === "Cancelled") return `${base} text-red-600 bg-red-100 hover:bg-red-200`;
+  if (status === "Block") return `${base} text-white bg-green-500 hover:bg-green-600`;
+  return base;
 }
 
 export default function ContractorVerification() {
@@ -27,7 +30,6 @@ export default function ContractorVerification() {
   const [search, setSearch] = useState("");
   const [selectedContractor, setSelectedContractor] = useState(null);
 
-  // Filter logic
   const filtered = initialContractors.filter(c => {
     const matchTab = activeTab === "All" || c.status === activeTab;
     const matchSearch = c.name.toLowerCase().includes(search.toLowerCase()) || 
@@ -35,14 +37,13 @@ export default function ContractorVerification() {
     return matchTab && matchSearch;
   });
 
-  // Agar koi contractor select hai, toh sirf detail page return karo
   if (selectedContractor) {
     return (
       <ContractorVerificationDetail
         contractor={selectedContractor}
         onBack={() => setSelectedContractor(null)}
-        onCancel={() => { setSelectedContractor(null); }}
-        onApprove={() => { setSelectedContractor(null); }}
+        onCancel={() => setSelectedContractor(null)}
+        onApprove={() => setSelectedContractor(null)}
       />
     );
   }
@@ -52,7 +53,7 @@ export default function ContractorVerification() {
       <TopBar />
 
       <div className="flex items-center justify-between mb-4 mt-[-40px] flex-wrap gap-3 text-left">
-        <h2 className="text-xl font-bold text-slate-800 m-0">Contractor Verification</h2>
+        <h2 className="text-xl font-bold text-slate-800 m-0">Contractor Management</h2>
         <input 
           type="text" 
           placeholder="Search..." 
@@ -81,8 +82,8 @@ export default function ContractorVerification() {
         <table className="w-full text-[10px] border-separate border-spacing-y-2 text-left">
           <thead>
             <tr className="text-black uppercase tracking-wider">
-              {["Name", "Email", "Phone", "Service", "Company", "Address", "Status", "Action"].map(col => (
-                <th key={col} className="px-3 py-2 font-bold text-[11px] text-black-500">{col}</th>
+              {["Name", "Email", "Phone", "Service", "Company", "Address", "Status"].map(col => (
+                <th key={col} className="px-3 py-2 font-bold text-[11px] text-black">{col}</th>
               ))}
             </tr>
           </thead>
@@ -98,23 +99,20 @@ export default function ContractorVerification() {
                   <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] rounded-l-lg" : ""}`}>
                     <div className="flex items-center gap-2">
                       <img src="/images/face.2.jpg" alt="avatar" className="w-5 h-5 rounded-full" />
-                      <span className="font-bold">{c.name}</span>
+                      <span className="font-bold text-gray-500">{c.name}</span>
                     </div>
                   </td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.email}</td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.phone}</td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.service}</td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.company}</td>
-                  <td className={`px-3 py-2 truncate max-w-[150px] ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.address}</td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>
-                    <span className={`px-3 py-1 rounded-full font-bold ${statusStyle(c.status)}`}>{c.status}</span>
-                  </td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] text-gray-500 " : "text-gray-500"}`}>{c.email}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{c.phone}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{c.service}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{c.company}</td>
+                  <td className={`px-3 py-2 truncate max-w-[150px] ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{c.address}</td>
                   <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] rounded-r-lg" : ""}`}>
                     <button 
-                      onClick={(e) => { e.stopPropagation(); setSelectedContractor(c); }} 
-                      className="text-gray-400 font-bold text-lg hover:text-blue-600"
+                      className={statusStyle(c.status)} 
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      •••
+                      {c.status}
                     </button>
                   </td>
                 </tr>

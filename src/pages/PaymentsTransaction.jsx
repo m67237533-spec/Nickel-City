@@ -93,23 +93,23 @@ export default function PaymentsTransaction() {
                   const isColored = index % 2 === 0;
                   return (
                     <tr key={t.id} className="hover:bg-slate-50 transition-colors">
-                      <td className={`px-3 py-3 whitespace-nowrap font-bold text-slate-800 ${isColored ? "bg-[#F3F7FB] rounded-l-lg" : ""}`}>
+                      <td className={`px-3 py-3 whitespace-nowrap font-bold text-slate-800 ${isColored ? "bg-[#F3F7FB]  rounded-l-lg" : ""}`}>
                         <div className="flex items-center gap-2">
                           <img
                             src="/images/face.1.jpg"
-                            className="w-5 h-5 rounded-full object-cover"
+                            className="w-5 h-5 rounded-full object-cover 0"
                             alt="User"
                           />                          {t.user}
                         </div>
                       </td>
-                      <td className={`px-3 py-3 font-medium ${isColored ? "bg-[#F3F7FB]" : ""}`}>{t.phone}</td>
-                      <td className={`px-3 py-3 font-semibold text-slate-700 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{t.service}</td>
+                      <td className={`px-3 py-3 font-medium ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.phone}</td>
+                      <td className={`px-3 py-3 font-semibold text-slate-700 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.service}</td>
                       <td className={`px-3 py-3 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{t.contractor}</td>
-                      <td className={`px-3 py-3 text-slate-400 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{t.dateTime}</td>
-                      <td className={`px-3 py-3 font-bold text-slate-800 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{t.payment}</td>
-                      <td className={`px-3 py-3 font-bold text-slate-700 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{t.commission}</td>
-                      <td className={`px-3 py-3 text-center ${isColored ? "bg-[#F3F7FB] rounded-r-lg" : ""}`}>
-                        <span className={`px-3 py-1 rounded-full text-[9px] font-bold ${getStatusClass(t.status)}`}>
+                      <td className={`px-3 py-3 text-slate-400 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.dateTime}</td>
+                      <td className={`px-3 py-3 font-bold text-slate-800 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.payment}</td>
+                      <td className={`px-3 py-3 font-bold text-slate-700 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.commission}</td>
+                      <td className={`px-3 py-3 text-center ${isColored ? "bg-[#F3F7FB] text-gray-500 rounded-r-lg" : "text-gray-500"}`}>
+                        <span className={`px-3 py-1 rounded-full text-[9px] font-bold   ${getStatusClass(t.status)}`}>
                           {t.status}
                         </span>
                       </td>

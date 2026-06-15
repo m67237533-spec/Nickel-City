@@ -65,9 +65,9 @@ export default function ReportedJobDetail({ job, onBack }) {
         {/* Header Section */}
         <div className="flex justify-between items-start  flex-wrap gap-4 w-full">
           <div className="flex items-center gap-3">
-            <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-white flex items-center justify-center cursor-pointer text-slate-500 hover:bg-slate-50">
-              <span className="text-sm font-bold">←</span>
-            </button>
+              <button onClick={onBack} className="w-8 h-8 rounded-full border border-slate-200 bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-slate-50">
+            ←
+          </button>
             <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Details</h2>
           </div>
           <div className="flex flex-col items-end gap-2.5">
@@ -96,10 +96,10 @@ export default function ReportedJobDetail({ job, onBack }) {
 
         {/* Info Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 mb-8 pb-6 border-b border-slate-100">
-          <div><span className="text-xs font-bold text-slate-400 uppercase">Service</span><div className="text-sm font-semibold text-slate-800 mt-1">{job?.title || "Lawn Mowing"}</div></div>
-          <div><span className="text-xs font-bold text-slate-400 uppercase">Yard Size</span><div className="text-sm font-semibold text-slate-800 mt-1">{job?.yardSize || "500"}</div></div>
-          <div className="md:col-span-2"><span className="text-xs font-bold text-slate-400 uppercase">Address</span><div className="text-sm font-semibold text-slate-800 mt-1">{job?.address || "53C, 14th street, Empire state, USA"}</div></div>
-          <div><span className="text-xs font-bold text-slate-400 uppercase">Date & Time</span><div className="text-sm font-semibold text-slate-800 mt-1">15 Sep, 2025 | 10:00 PM</div></div>
+          <div><span className="text-xs font-bold text-black uppercase">Service</span><div className="text-sm font-semibold text-slate-800 mt-1">{job?.title || "Lawn Mowing"}</div></div>
+          <div><span className="text-xs font-bold text-black uppercase">Yard Size</span><div className="text-sm font-semibold text-slate-500 mt-1">{job?.yardSize || "500"}</div></div>
+          <div className="md:col-span-2"><span className="text-xs font-bold text-black uppercase">Address</span><div className="text-sm font-semibold text-slate-500 mt-1">{job?.address || "53C, 14th street, Empire state, USA"}</div></div>
+          <div><span className="text-xs font-bold text-black uppercase">Date & Time</span><div className="text-sm font-semibold text-slate-500 mt-1">15 Sep, 2025 | 10:00 PM</div></div>
         </div>
 
         {/* Contractor Information (Updated with details) */}
@@ -113,9 +113,9 @@ export default function ReportedJobDetail({ job, onBack }) {
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div><span className="text-xs font-bold text-slate-400 uppercase">Phone Number</span><div className="text-sm font-semibold text-slate-800 mt-1">+0123456789</div></div>
-            <div><span className="text-xs font-bold text-slate-400 uppercase">Service Area</span><div className="text-sm font-semibold text-slate-800 mt-1">Lorem ipsum, Lorem ipsum</div></div>
-            <div><span className="text-xs font-bold text-slate-400 uppercase">Company Name</span><div className="text-sm font-semibold text-slate-800 mt-1">Lawn Rangers</div></div>
+            <div><span className="text-xs font-bold text-black uppercase">Phone Number</span><div className="text-sm font-semibold text-slate-500 mt-1">+0123456789</div></div>
+            <div><span className="text-xs font-bold text-black uppercase">Service Area</span><div className="text-sm font-semibold text-slate-500 mt-1">Lorem ipsum, Lorem ipsum</div></div>
+            <div><span className="text-xs font-bold text-black uppercase">Company Name</span><div className="text-sm font-semibold text-slate-500 mt-1">Lawn Rangers</div></div>
           </div>
         </div>
 

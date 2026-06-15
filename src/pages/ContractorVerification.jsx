@@ -8,7 +8,11 @@ const initialContractors = [
   { id: 3, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A", address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
   { id: 4, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
   { id: 5, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
-  { id: 6, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A", address: "53C, 14th street, Empire state, USA", status: "Cancelled" }
+  { id: 6, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A", address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
+   { id: 7, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A", address: "53C, 14th street, Empire state, USA", status: "Cancelled" },
+  { id: 8, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Pending" },
+  { id: 9, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "Lawn Rangers", address: "53C, 14th street, Empire state, USA", status: "Approved" },
+  { id: 10, name: "John Doe", email: "john.doe@gmail.com", phone: "+0123456789", service: "Lawn Mowing", company: "N/A", address: "53C, 14th street, Empire state, USA", status: "Cancelled" }
 ];
 
 const tabs = ["All", "Pending", "Approved", "Cancelled"];
@@ -94,14 +98,14 @@ export default function ContractorVerification() {
                   <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] rounded-l-lg" : ""}`}>
                     <div className="flex items-center gap-2">
                       <img src="/images/face.2.jpg" alt="avatar" className="w-5 h-5 rounded-full" />
-                      <span className="font-bold">{c.name}</span>
+                      <span className="font-bold text-gray-500">{c.name}</span>
                     </div>
                   </td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.email}</td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.phone}</td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.service}</td>
-                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.company}</td>
-                  <td className={`px-3 py-2 truncate max-w-[150px] ${isColored ? "bg-[#F3F7FB]" : ""}`}>{c.address}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{c.email}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{c.phone}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{c.service}</td>
+                  <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{c.company}</td>
+                  <td className={`px-3 py-2 truncate max-w-[150px] ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{c.address}</td>
                   <td className={`px-3 py-2 ${isColored ? "bg-[#F3F7FB]" : ""}`}>
                     <span className={`px-3 py-1 rounded-full font-bold ${statusStyle(c.status)}`}>{c.status}</span>
                   </td>
