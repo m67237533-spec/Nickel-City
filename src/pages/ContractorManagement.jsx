@@ -17,7 +17,7 @@ const tabs = [""];
 
 function statusStyle(status) {
   // Block style button classes
-  const base = "px-4 py-1.5 rounded-lg font-bold text-[10px] border-none cursor-pointer w-full text-center transition-colors";
+  const base = "px py-1 rounded-lg font-bold text-[10px] border-none cursor-pointer w-full text-center transition-colors";
   // if (status === "Pending") return `${base} text-yellow-600 bg-yellow-100 hover:bg-yellow-200`;
   // if (status === "Approved") return `${base} text-green-600 bg-green-100 hover:bg-green-200`;
   // if (status === "Cancelled") return `${base} text-red-600 bg-red-100 hover:bg-red-200`;

@@ -93,7 +93,7 @@ export default function PaymentsTransaction() {
                   const isColored = index % 2 === 0;
                   return (
                     <tr key={t.id} className="hover:bg-slate-50 transition-colors">
-                      <td className={`px-3 py-3 whitespace-nowrap font-bold text-slate-800 ${isColored ? "bg-[#F3F7FB]  rounded-l-lg" : ""}`}>
+                      <td className={`px-3 py-3 whitespace-nowrap font-bold text-slate-800 ${isColored ? "bg-[#F3F7FB] text-gray-500 rounded-l-lg" : "text-gray-500"}`}>
                         <div className="flex items-center gap-2">
                           <img
                             src="/images/face.1.jpg"
