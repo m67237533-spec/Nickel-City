@@ -28,7 +28,7 @@ export default function ContractorVerificationDetail({ contractor, onBack, onCan
       <div className="">
         <h3 className="font-bold text-lg mb-4">Contractor Information</h3>
         <div className="flex items-center gap-4 mb-8">
-          <img src="/images/face.2.jpg" alt="profile" className="w-16 h-16 rounded-full object-cover" />
+          <img src="/images/face.2.jpg" alt="profile" className="w-14 h-14 rounded-full object-cover" />
           <div>
             <h4 className="font-bold text-lg">{contractor.name}</h4>
             <p className="text-gray-500 text-sm">{contractor.email}</p>
@@ -66,11 +66,11 @@ export default function ContractorVerificationDetail({ contractor, onBack, onCan
             <>
               <div>
                 <p className="text-gray-400">Article</p>
-                <img src="/images/article.1.jpg" alt="Article" className="w-16 h-16 rounded mt-1 border border-dashed object-cover" />
+                <img src="/images/article.1.jpg" alt="Article" className="w-14 h-14 rounded mt-1 border border-dashed object-cover" />
               </div>
               <div>
                 <p className="text-gray-400">EIN Letter</p>
-                <img src="/images/article.2.jpg" alt="EIN Letter" className="w-16 h-16 rounded mt-1 border border-dashed object-cover" />
+                <img src="/images/article.2.jpg" alt="EIN Letter" className="w-14 h-14 rounded mt-1 border border-dashed object-cover" />
               </div>
             </>
           ) : (
