@@ -41,7 +41,7 @@ export default function JobDetail({ job, onBack, getStatusClass }) {
       )}
 
       {/* Main Details Card Box */}
-      <div className="p-6 border-slate-100/60 box-border w-full">
+      <div className=" border-slate-100/60 box-border w-full">
         
         {/* Back Button + Title + Status Badge Row */}
         <div className="flex justify-between items-start mb-6 flex-wrap gap-4 w-full">
