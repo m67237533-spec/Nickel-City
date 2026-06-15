@@ -34,10 +34,10 @@ export default function Sidebar({ active, setActive, onLogoutClick }) {
       )}
 
       {/* 3. Sidebar Component */}
-      <aside className={`fixed top-0 left-0 h-screen bg-[#1866B4] flex flex-col z-40 transition-transform duration-300 w-[270px]
-        ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
-      >
-        <div className="flex justify-center pt-6 pb-6">
+    <aside className={`fixed top-0 left-0 h-screen bg-[#1866B4] flex flex-col z-40 transition-transform duration-300 w-[260px] md:w-[270px]
+${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+>
+     <div className="flex justify-center pt-14 md:pt-6 pb-6">
           <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg">
             <img src="/images/Logo.jpg" alt="Logo" className="w-20 h-20 object-contain" />
           </div>
@@ -53,7 +53,7 @@ export default function Sidebar({ active, setActive, onLogoutClick }) {
                   setActive(label);
                   if (window.innerWidth < 768) setIsOpen(false); // Mobile par click karte hi menu band
                 }}
-                className={`w-full flex items-center gap-4 px-4 py-2.5 mb-2  text-[11px] transition-all border-none cursor-pointer
+                className={`w-full flex items-center gap-3 px-3 md:px-4 py-3 mb-2  text-[11px] transition-all border-none cursor-pointer
                 ${isActive ? "bg-white text-[#1866B4] shadow-md" : "text-white hover:bg-white/10"}`}
               >
                 <img

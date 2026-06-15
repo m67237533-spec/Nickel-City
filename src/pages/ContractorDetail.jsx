@@ -100,9 +100,9 @@ export default function ContractorDetail({ contractor, onBack }) {
 
           {/* Right Sidebar Panel */}
           <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 flex flex-col h-fit w-60 relative">
-            <button className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white border border-gray-100 cursor-pointer flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors">
+            {/* <button className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white border border-gray-100 cursor-pointer flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors">
               <Pencil size={14} className="text-gray-600" />
-            </button>
+            </button> */}
 
             <div className="flex justify-between mb-4">
               <span className="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Paid</span>
