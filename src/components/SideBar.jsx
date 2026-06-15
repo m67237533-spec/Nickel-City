@@ -70,7 +70,7 @@ export default function Sidebar({ active, setActive, onLogoutClick }) {
           })}
         </div>
 
-        <div className="p-6">
+        <div className="p-6 ">
           <button onClick={onLogoutClick} className="w-full bg-white text-[#1866B4] py-3 rounded-xl flex items-center justify-center gap-2 font-bold text-[13px] border-none cursor-pointer hover:bg-slate-100 transition-colors shadow-sm">
             Logout
           </button>
