@@ -71,9 +71,9 @@ export default function PaymentsTransaction() {
 
       {/* Table Section */}
       <div className=" rounded- shadow-sm  overflow-hidden w-full">
-        <h3 className="text-base font-bold text-slate-800 mb-2">Transactions</h3>
+<h3 className="text-2xl font-bold text-[#1e293b] mb-4">Transactions</h3>
         <div className="overflow-x-auto">
-          <table className="w-full text-[10px] border-separate border-spacing-y-2 text-left">
+          <table className="w-full text-[11px] border-separate border-spacing-y-2 text-left">
             <thead>
               <tr className="text-black-400 font-bold uppercase tracking-wider">
                 <th className="px-3 py-2">User Name</th>
@@ -94,20 +94,20 @@ export default function PaymentsTransaction() {
                   return (
                     <tr key={t.id} className="hover:bg-slate-50 transition-colors">
                       <td className={`px-3 py-3 whitespace-nowrap font-bold text-slate-800 ${isColored ? "bg-[#F3F7FB] text-gray-500 rounded-l-lg" : "text-gray-500"}`}>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 text-gray-500">
                           <img
                             src="/images/face.1.jpg"
-                            className="w-5 h-5 rounded-full object-cover 0"
+                            className="w-5 h-5  rounded-full object-cover 0"
                             alt="User"
                           />                          {t.user}
                         </div>
                       </td>
                       <td className={`px-3 py-3 font-medium ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.phone}</td>
-                      <td className={`px-3 py-3 font-semibold text-slate-700 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.service}</td>
+                      <td className={`px-3 py-3 font-semibold  ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.service}</td>
                       <td className={`px-3 py-3 ${isColored ? "bg-[#F3F7FB]" : ""}`}>{t.contractor}</td>
-                      <td className={`px-3 py-3 text-slate-400 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.dateTime}</td>
-                      <td className={`px-3 py-3 font-bold text-slate-800 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.payment}</td>
-                      <td className={`px-3 py-3 font-bold text-slate-700 ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.commission}</td>
+                      <td className={`px-3 py-3  ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.dateTime}</td>
+                      <td className={`px-3 py-3 font-bold  ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.payment}</td>
+                      <td className={`px-3 py-3 font-bold  ${isColored ? "bg-[#F3F7FB] text-gray-500" : "text-gray-500"}`}>{t.commission}</td>
                       <td className={`px-3 py-3 text-center ${isColored ? "bg-[#F3F7FB] text-gray-500 rounded-r-lg" : "text-gray-500"}`}>
                         <span className={`px-3 py-1 rounded-full text-[9px] font-bold   ${getStatusClass(t.status)}`}>
                           {t.status}
