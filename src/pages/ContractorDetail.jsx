@@ -33,7 +33,7 @@ export default function ContractorDetail({ contractor, onBack }) {
         </div> */}
 
         {/* Main Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr,240px] gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr,240px]">
           
           {/* Left Panel */}
           <div className="w-full">
@@ -41,7 +41,7 @@ export default function ContractorDetail({ contractor, onBack }) {
             <h2 className=" text-xl font-bold text-[#1e293b]">User Details</h2>
 
             {/* Info Section */}
-            <div className="mb-8 p-4 flex items-center gap-4">
+            <div className="mb-8 p-4 flex items-center gap-4  ">
               <img src={`/images/face.1.jpg`} className="w-16 h-16 rounded-full object-cover" alt="profile" />
               <div>
                 <div className="text-base font-bold text-[#1e293b]">{contractor?.name || "James Anderson"}</div>
@@ -52,9 +52,9 @@ export default function ContractorDetail({ contractor, onBack }) {
 
             {/* Jobs Section */}
             <h3 className="text-sm font-bold text-[#1e293b] mb-4">Jobs Information</h3>
-            <div className="flex flex-wrap gap-4 mb-8">
+            <div className="flex gap-2 mb-8 overflow-x-auto whitespace-nowrap pb-2">
               {jobData.map((job) => (
-                <div key={job.id} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col min-h-[140px] w-[260px]">
+                <div key={job.id} className="bg-white rounded-2xl p-2 shadow-sm border border-gray-100 flex flex-col min-h-[140px] min-w-[260px] flex-shrink-0">
                   <div className="flex justify-between items-start mb-3">
                     <div className="text-left overflow-hidden">
                       <h3 className="font-bold text-slate-900 text-sm truncate">{job.title}</h3>
