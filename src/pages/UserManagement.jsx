@@ -15,24 +15,23 @@ const users = [
 
 export default function UserManagement({ onUserClick }) {
   return (
-    <div className="w-full pt-0 pl-0 pr-8 mt-[-20px]"> 
-      
+    <div className="w-full pt-0 pl-0 pr-8 mt-[-20px]">
+
       <div className="flex justify-between items-center mb-4 flex-wrap gap-3">
         <h2 className="text-xl font-bold text-slate-800 m-0">User Management</h2>
         <div className="flex items-center gap-3">
-          <input 
-            type="text" 
-            placeholder="Search..." 
-            className="w-[500px] border border-slate-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-blue-400 shadow-sm" 
+          <input
+            type="text"
+            placeholder="Search..."
+            className="w-[500px] border  rounded-xl px-4 py-2.5 text-sm outline-none focus:border-blue-400 shadow-md"
           />
-          <select className="border border-slate-200 rounded-xl px-4 py-2.5 text-sm outline-none text-slate-600 shadow-sm cursor-pointer hover:border-slate-300">
-            <option>All</option>
+<select className="border  rounded-xl px-4 py-2.5 text-sm outline-none text-slate-600 shadow-md cursor-pointer hover:border-slate-300">            <option>All</option>
             <option>Block</option>
             <option>Unblock</option>
           </select>
         </div>
       </div>
-      
+
       <div className="w-full overflow-x-auto">
         <table className="w-full text-[10px] border-separate border-spacing-y-2 text-left">
           <thead>
@@ -48,8 +47,8 @@ export default function UserManagement({ onUserClick }) {
             {users.map((u, index) => {
               const isColored = index % 2 === 0;
               return (
-                <tr 
-                  key={u.id + index} 
+                <tr
+                  key={u.id + index}
                   onClick={() => onUserClick(u)}
                   className="cursor-pointer hover:bg-slate-50 transition-colors"
                 >
