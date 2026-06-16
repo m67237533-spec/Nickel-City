@@ -57,8 +57,7 @@ export default function ServiceManagement() {
   }
 
   return (
-    <div className="p-4 space-y-6  min-h-screen">
-
+<div className="text-2xl font-bold text-slate-900 mt-[-10px]">
       <TopBar />
 
       {/* HEADER */}
@@ -105,9 +104,9 @@ export default function ServiceManagement() {
                 </span>
               </p>
 
-              <div className="text-[11px] text-gray-400 pt-2">
+              {/* <div className="text-[11px] text-gray-400 pt-2">
                 {service.ranges[0]?.state} • {service.ranges[0]?.cities?.[0]}
-              </div>
+              </div> */}
 
             </div>
 

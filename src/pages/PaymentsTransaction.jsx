@@ -75,7 +75,7 @@ export default function PaymentsTransaction() {
       </div>
 
       {/* 🔥 YOUR ORIGINAL TABLE (UNCHANGED) */}
-      <div className=" rounded- shadow-sm  overflow-hidden w-full">
+      <div className="   overflow-hidden w-full">
         <h3 className="text-2xl font-bold text-[#1e293b] mb-4">Transactions</h3>
 
         <div className="overflow-x-auto">

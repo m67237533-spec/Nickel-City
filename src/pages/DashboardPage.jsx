@@ -61,7 +61,9 @@ export default function DashboardPage() {
     <div className="p-3 sm:p-4 space-y-6  min-h-screen">
 
       <TopBar />
-
+<h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-2">
+  Dashboard
+</h2>
       {/* STATS - UPDATED RESPONSIVE GRID */}
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {stats.map((s) => (
