@@ -54,7 +54,7 @@ export default function UserManagement({ onUserClick }) {
             placeholder="Search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-[500px] border rounded-xl px-4 py-2.5 text-sm outline-none focus:border-blue-400 shadow-md"
+            className="w-[500px] border rounded-xl px-4 py-2.5 text-sm outline-none shadow-md"
           />
 
           {/* FILTER */}
