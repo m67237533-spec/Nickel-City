@@ -41,57 +41,79 @@ export default function ServiceManagement() {
   if (editingService) {
     if (editingService.title === "Snow Removal") {
       return (
-        <EditSnowRemoval 
-          service={editingService} 
-          onBack={() => setEditingService(null)} 
+        <EditSnowRemoval
+          service={editingService}
+          onBack={() => setEditingService(null)}
         />
       );
     } else {
       return (
-        <EditService 
-          service={editingService} 
-          onBack={() => setEditingService(null)} 
+        <EditService
+          service={editingService}
+          onBack={() => setEditingService(null)}
         />
       );
     }
   }
 
   return (
-    <div className=" pt-0">
-      <div className="mb-2">
-        <TopBar />
-      </div>
-      
-      {/* Heading: mt-[-20px] se upar shift kiya aur ml-2 se left align rakha */}
-      <h2 className="text-xl font-bold text-slate-900 mt-[-40px] mb-6 text-left ml-2 text-left">
+    <div className="p-4 space-y-6  min-h-screen">
+
+      <TopBar />
+
+      {/* HEADER */}
+      <h2 className="text-2xl font-bold text-slate-900 mt-[-20px]">
         Service Management
       </h2>
 
-      <div className="flex gap-5 flex-wrap ml-2">
+      {/* GRID */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
         {initialServices.map((service) => (
-          <div key={service.id} className="w-60 bg-white rounded-2xl shadow-lg border border-gray-100 text-left transition-all hover:shadow-xl">
-            <div className="relative p-2">
-              <img 
-                src={service.image} 
-                alt={service.title} 
-                className="w-full h-32 object-cover rounded-xl" 
+          <div
+            key={service.id}
+            className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all"
+          >
+
+            {/* IMAGE */}
+            <div className="relative">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-40 object-cover rounded-t-xl"
               />
-           <button
-  onClick={() => setEditingService(service)}
-  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white border border-gray-100 cursor-pointer flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors"
->
-  <Pencil size={14} className="text-gray-600" />
-</button>
+
+              <button
+                onClick={() => setEditingService(service)}
+                className="absolute top-3 right-3 w-9 h-9 rounded-lg bg-white shadow flex items-center justify-center hover:bg-gray-50"
+              >
+                <Pencil size={14} className="text-gray-600" />
+              </button>
             </div>
-            
-            <div className="px-4 pb-4 pt-1 text-left">
-              <div className="text-sm font-bold text-slate-800 mb-1">{service.title}</div>
-              <div className="text-xs text-gray-500">
-                Service Commission: <span className="font-bold text-blue-600">{service.commission}%</span>
+
+            {/* CONTENT */}
+            <div className="p-4 space-y-1">
+
+              <h3 className="text-base font-semibold text-slate-800">
+                {service.title}
+              </h3>
+
+              <p className="text-xs text-gray-500">
+                Service Commission:
+                <span className="text-blue-600 font-bold ml-1">
+                  {service.commission}%
+                </span>
+              </p>
+
+              <div className="text-[11px] text-gray-400 pt-2">
+                {service.ranges[0]?.state} • {service.ranges[0]?.cities?.[0]}
               </div>
+
             </div>
+
           </div>
         ))}
+
       </div>
     </div>
   );

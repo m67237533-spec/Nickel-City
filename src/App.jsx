@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Sidebar from "./components/Sidebar";
-import DashboardPage from "./pages/Dashboard";
+import DashboardPage from "./pages/DashboardPage"; // ✅ FIXED HERE
+
 import ServiceManagement from "./pages/ServiceManagement";
 import UserManagement from "./pages/UserManagement";
-import UserDetails from "./pages/UserDetails"; // Import Added
+import UserDetails from "./pages/UserDetails";
 import ContractorManagement from "./pages/ContractorManagement";
 import ContractorVerification from "./pages/ContractorVerification";
 import JobManagement from "./pages/JobManagement";
@@ -18,14 +19,11 @@ import ResetPassword from "./pages/ResetPassword";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 
-
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState("LOGIN");
   const [active, setActive] = useState("Dashboard");
   const [previousActive, setPreviousActive] = useState("Dashboard");
-  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
-  const [showUpdatePopup, setShowUpdatePopup] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null); // State Added
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const [adminData, setAdminData] = useState({
     name: "Admin",
@@ -34,76 +32,113 @@ export default function App() {
     avatar: "images/profile.jpg",
   });
 
-  const completedPages = [
-    "Dashboard", "Service Management", "User Management", "UserDetails",
-    "Contractor Management", "Contractor Verification", "Job Management",
-    "Payment & Transaction", "Reported Jobs", "Settings", "Notifications",
-    "Change Password", "Terms & Conditions", "Privacy Policy", "About Us",
-    "Profile", "EditProfile"
-  ];
+  if (currentScreen === "LOGIN")
+    return (
+      <Login
+        onLoginSuccess={() => setCurrentScreen("DASHBOARD_FLOW")}
+        onForgotPasswordClick={() => setCurrentScreen("FORGOT_PASSWORD")}
+      />
+    );
 
-  if (currentScreen === "LOGIN") return <Login onLoginSuccess={() => setCurrentScreen("DASHBOARD_FLOW")} onForgotPasswordClick={() => setCurrentScreen("FORGOT_PASSWORD")} />;
-  if (currentScreen === "FORGOT_PASSWORD") return <ForgotPassword onBackToLogin={() => setCurrentScreen("LOGIN")} onGoToOTP={() => setCurrentScreen("VERIFY_OTP")} />;
-  if (currentScreen === "VERIFY_OTP") return <VerifyOTP onBackToForgot={() => setCurrentScreen("FORGOT_PASSWORD")} onOTPSuccess={() => setCurrentScreen("RESET_PASSWORD")} />;
-  if (currentScreen === "RESET_PASSWORD") return <ResetPassword onBackToOTP={() => setCurrentScreen("VERIFY_OTP")} onResetSuccess={() => setCurrentScreen("LOGIN")} />;
+  if (currentScreen === "FORGOT_PASSWORD")
+    return (
+      <ForgotPassword
+        onBackToLogin={() => setCurrentScreen("LOGIN")}
+        onGoToOTP={() => setCurrentScreen("VERIFY_OTP")}
+      />
+    );
+
+  if (currentScreen === "VERIFY_OTP")
+    return (
+      <VerifyOTP
+        onBackToForgot={() => setCurrentScreen("FORGOT_PASSWORD")}
+        onOTPSuccess={() => setCurrentScreen("RESET_PASSWORD")}
+      />
+    );
+
+  if (currentScreen === "RESET_PASSWORD")
+    return (
+      <ResetPassword
+        onBackToOTP={() => setCurrentScreen("VERIFY_OTP")}
+        onResetSuccess={() => setCurrentScreen("LOGIN")}
+      />
+    );
 
   return (
-    <div className="flex min-h-screen font-sans relative">
+    <div className="flex min-h-screen">
+
+      {/* Sidebar */}
       <Sidebar
-        active={["Notifications", "Change Password", "Terms & Conditions", "Privacy Policy", "About Us", "Profile", "EditProfile", "UserDetails"].includes(active) ? (active === "UserDetails" ? "User Management" : "Settings") : active}
+        active={active}
         setActive={setActive}
-        onLogoutClick={() => setShowLogoutPopup(true)}
       />
 
-     <main className="flex-1 md:pl-[270px] overflow-y-auto w-full">
-        {!["Notifications", "Change Password", "Terms & Conditions", "Privacy Policy", "About Us"].includes(active) && (
-          <div className="flex flex-col">
-           <div className="p-4 pb-4 pt-14 md:pt-2 flex flex-col md:flex-row gap-4 md:gap-0 justify-between md:items-center">
-             <h1 className="text-[24px] md:text-[35px] font-bold text-[#222] tracking-tight pl-2 mt-2">Welcome Back, Admin!</h1>
-           <div className="flex items-center justify-between w-full md:w-auto">
-                <button onClick={() => { setPreviousActive(active); setActive("Notifications"); }} className="w-10 h-10 rounded-xl flex items-center justify-center border-none bg-[#EEF4FB] cursor-pointer hover:bg-blue-100 transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#1866B4" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" /></svg>
-                </button>
-                <div onClick={() => { setPreviousActive(active); setActive("Profile"); }} className="flex items-center gap-2 px-4 py-2 rounded-xl hover:border-gray-200 transition-colors cursor-pointer">
-                  <img src={adminData.avatar} className="w-11 h-11 rounded-xl object-cover" alt="Admin" />
-                  <div className="text-left"><h4 className="font-bold text-xs text-slate-800">{adminData.name}</h4><p className="text-[13px] text-gray-400">{adminData.email}</p></div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full h-[1px] bg-gray-100 mb-6"></div>
+      {/* Main */}
+      <main className="flex-1 md:pl-[270px] overflow-y-auto w-full">
+
+        {/* Top Section */}
+        {!["Notifications"].includes(active) && (
+          <div className="p-4">
+            <h1 className="text-2xl font-bold">Welcome Back, Admin!</h1>
           </div>
         )}
 
-<div className="p-3 md:p-6 pt-2">
+        {/* Pages */}
+        <div className="p-4">
+
           {active === "Dashboard" && <DashboardPage />}
+
           {active === "Service Management" && <ServiceManagement />}
 
           {active === "User Management" && (
-            <UserManagement onUserClick={(user) => { setSelectedUser(user); setActive("UserDetails"); }} />
+            <UserManagement
+              onUserClick={(user) => {
+                setSelectedUser(user);
+                setActive("UserDetails");
+              }}
+            />
           )}
+
           {active === "UserDetails" && (
-            <UserDetails user={selectedUser} onBackClick={() => setActive("User Management")} />
+            <UserDetails
+              user={selectedUser}
+              onBackClick={() => setActive("User Management")}
+            />
           )}
 
           {active === "Contractor Management" && <ContractorManagement />}
-          {active === "Contractor Verification" && <ContractorVerification />}
-          {active === "Job Management" && <JobManagement />}
-          {active === "Payment & Transaction" && <PaymentsTransaction />}
-          {active === "Reported Jobs" && <JobReport />}
-          {active === "Settings" && <Settings onTabSelect={(tabName) => setActive(tabName)} />}
-          {active === "Notifications" && <Notifications onBackClick={() => setActive(previousActive)} />}
-          {active === "Profile" && <Profile adminData={adminData} onEditClick={() => setActive("EditProfile")} onBackClick={() => setActive(previousActive)} />}
-          {active === "EditProfile" && <EditProfile adminData={adminData} setAdminData={setAdminData} onUpdateClick={() => setShowUpdatePopup(true)} onBackClick={() => setActive("Profile")} />}
 
-          {["Change Password", "Privacy Policy", "Terms & Conditions", "About Us"].includes(active) && (
-            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-              <button onClick={() => setActive("Settings")} className="mb-4 text-xs text-blue-600 font-bold bg-transparent border-none cursor-pointer">← Back to Settings</button>
-              <h2 className="text-xl font-bold text-slate-800">{active} Screen</h2>
-            </div>
+          {active === "Contractor Verification" && <ContractorVerification />}
+
+          {active === "Job Management" && <JobManagement />}
+
+          {active === "Payment & Transaction" && <PaymentsTransaction />}
+
+          {active === "Reported Jobs" && <JobReport />}
+
+          {active === "Settings" && <Settings setActive={setActive} />}
+
+          {active === "Notifications" && (
+            <Notifications onBackClick={() => setActive(previousActive)} />
           )}
+
+          {active === "Profile" && (
+            <Profile
+              adminData={adminData}
+              onBackClick={() => setActive(previousActive)}
+            />
+          )}
+
+          {active === "EditProfile" && (
+            <EditProfile
+              adminData={adminData}
+              setAdminData={setAdminData}
+              onBackClick={() => setActive("Profile")}
+            />
+          )}
+
         </div>
       </main>
-      {/* Popups (Logout/Update) remain the same */}
     </div>
   );
 }
