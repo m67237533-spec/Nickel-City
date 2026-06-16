@@ -71,7 +71,7 @@ export default function JobDetail({ job, onBack, getStatusClass }) {
         {/* User Information Section */}
         <div className="mb-8 w-full">
           <div className="flex items-center gap-24 mb-3 w-full">
-            <h3 className="text-sm font-bold text-slate-800 m-0 tracking-tight">User Information</h3>
+             <h3 className="text-xl font-bold text-[#1e293b] mb-4">Jobs Information</h3>
             <span className="text-base font-black text-slate-900">${job?.price || "24"}</span>
           </div>
           <div className="flex items-center gap-4">
@@ -98,9 +98,9 @@ export default function JobDetail({ job, onBack, getStatusClass }) {
           <div className="flex flex-col gap-1 max-w-xs">
             <span className="text-sm font-bold text-slate-800 tracking-tight">Address</span>
             <span className="text-xs text-slate-400 font-medium leading-relaxed">{job?.address || "53C, 14th street, Empire state, USA"}</span>
-            <div className="flex flex-col gap-1 mt-6">
+            <div className="flex flex-col gap-1 mt-6 text-left">
               <span className="text-sm font-bold text-slate-800 tracking-tight">Instructions</span>
-              <p className="text-xs text-slate-400 font-medium leading-relaxed m-0">{job?.instructions || "Lorem ipsum dolor sit amet, consectetur adipiscing"}</p>
+              <p className="text-xs text-slate-400 font-medium leading-relaxed m-0 tx">{job?.instructions || "Lorem ipsum dolor sit amet, consectetur adipiscing"}</p>
             </div>
           </div>
           <div className="flex flex-col gap-1">

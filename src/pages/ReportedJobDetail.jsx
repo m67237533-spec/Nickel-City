@@ -82,7 +82,7 @@ export default function ReportedJobDetail({ job, onBack }) {
         {/* User Info & Price */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-sm font-bold text-slate-800">User Information</h3>
+             <h3 className="text-xl font-bold text-[#1e293b] mb-4">User Information</h3>
             <span className="text-xl font-black text-slate-900">${job?.price || "24"}</span>
           </div>
           <div className="flex items-center gap-4">
