@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Pencil } from "lucide-react"; 
+import { Pencil } from "lucide-react";
 
 export default function Settings({ initialView = "main" }) {
-  const [subView, setSubView] = useState(initialView); 
-  
+  const [subView, setSubView] = useState(initialView);
+
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -28,7 +28,7 @@ export default function Settings({ initialView = "main" }) {
 
   return (
     <div className="pt-0 pr-8 pb-8 pl-0">
-      
+
       {subView === "main" && (
         <div className="mb-8">
           <h2 className="text-1xl font-bold text-slate-800">Settings</h2>
@@ -47,9 +47,9 @@ export default function Settings({ initialView = "main" }) {
       {subView !== "main" && (
         <div className="w-full">
           {/* Back Button with Gray Background */}
-          <div className="mb-4">
-            <button 
-              onClick={() => setSubView("main")} 
+          <div className="mb-">
+            <button
+              onClick={() => setSubView("main")}
               className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors font-bold bg-gray-200"
             >
               ←
@@ -65,24 +65,59 @@ export default function Settings({ initialView = "main" }) {
               </button>
             )}
           </div>
-          
+
           {/* Content Container with Shadow */}
           <div className="  w-full">
             {subView === "password" && (
-              <form onSubmit={handlePasswordUpdate} className="space-y-5 max-w-xl">
+              <form onSubmit={handlePasswordUpdate} className="space-y-5 max-w-md">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-2">Current Password</label>
-                  <input type="password" placeholder="**********" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} required className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm" />
+                  <label className="block text-xs font-bold text-slate-700 mb-2">
+                    Current Password
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="**********"
+                    value={currentPassword}
+                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm"
+                  />
                 </div>
+
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-2">New Password</label>
-                  <input type="password" placeholder="**********" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm" />
+                  <label className="block text-xs font-bold text-slate-700 mb-2">
+                    New Password
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="**********"
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm"
+                  />
                 </div>
+
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-2">Confirm Password</label>
-                  <input type="password" placeholder="**********" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm" />
+                  <label className="block text-xs font-bold text-slate-700 mb-2">
+                    Confirm Password
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="**********"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 text-sm"
+                  />
                 </div>
-                <button type="submit" className="w-full py-3.5 bg-[#1866B4] text-white rounded-xl font-bold text-sm hover:bg-blue-700 transition-colors">Update Password</button>
+
+                <button
+                  type="submit"
+                  className="w-[380px] py-3.5 bg-[#1866B4] text-white rounded-xl text-sm shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all duration-300"
+                >
+                  Update Password
+                </button>
               </form>
             )}
 
