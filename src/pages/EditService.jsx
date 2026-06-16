@@ -27,7 +27,7 @@ export default function EditService({ service, onBack }) {
     <div className=" min-h-screen ">
       {/* SUCCESS POPUP MODAL */}
       {showSuccess && (
-        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-white rounded-[24px] p-10 w-[400px] flex flex-col items-center text-center shadow-2xl">
             <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-6">
               <span className="text-3xl text-green-500">✓</span>

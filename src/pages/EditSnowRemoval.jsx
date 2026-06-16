@@ -120,7 +120,7 @@ const styles = {
   addAnotherCityBtn: { background: "#1e62c9", color: "#fff", border: "none", padding: "14px 28px", borderRadius: "8px", fontWeight: "600", cursor: "pointer", marginLeft: "10px" },
   overlay: { position: "fixed", inset: 0, background: "rgba(15, 23, 42, 0.6)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 9999, backdropFilter: "blur(2px)" },
   modal: { background: "#ffffff", borderRadius: "24px", padding: "40px", textAlign: "center", width: "400px", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)" },
-  successIconBox: { width: "64px", height: "64px", background: "#f0fdf4", color: "#22c55e", borderRadius: "50%", fontSize: "32px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" },
+  successIconBox: { width: "64px", height: "64px", background: "#cbd6cf", color: "#22c55e", borderRadius: "50%", fontSize: "32px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" },
   modalTitle: { fontSize: "24px", fontWeight: "800", color: "#0f172a", margin: "0 0 8px 0" },
   modalMsg: { fontSize: "14px", color: "#64748b", margin: "0 0 24px 0" },
   doneBtn: { background: "#1e62c9", color: "#ffffff", border: "none", padding: "14px 0", width: "100%", borderRadius: "12px", fontSize: "16px", fontWeight: "700", cursor: "pointer" }
