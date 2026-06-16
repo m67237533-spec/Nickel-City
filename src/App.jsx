@@ -28,9 +28,6 @@ export default function App() {
 
   const [selectedUser, setSelectedUser] = useState(null);
 
-  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
-  const [showUpdatePopup, setShowUpdatePopup] = useState(false);
-
   const [adminData, setAdminData] = useState({
     name: "Admin",
     email: "admin.admin@gmail.com",
@@ -77,22 +74,23 @@ export default function App() {
 
       {/* Sidebar */}
       <Sidebar
-        active={
-          ["Notifications", "Profile", "EditProfile", "UserDetails"].includes(active)
-            ? active === "UserDetails"
-              ? "User Management"
-              : "Settings"
-            : active
-        }
-        setActive={setActive}
-        onLogoutClick={() => setShowLogoutPopup(true)}
+        active={active}
+        setActive={(val) => {
+          setPreviousActive(active);
+          setActive(val);
+        }}
       />
 
       {/* MAIN CONTENT */}
       <main className="flex-1 md:pl-[270px] overflow-y-auto w-full">
 
-        {/* HEADER */}
-        {!["Notifications", "Change Password", "Terms & Conditions", "Privacy Policy", "About Us"].includes(active) && (
+        {/* HEADER (VISIBLE ON ALL EXCEPT AUTH SCREENS) */}
+        {![
+          "Change Password",
+          "Terms & Conditions",
+          "Privacy Policy",
+          "About Us"
+        ].includes(active) && (
           <div className="flex flex-col">
             <div className="p-4 pt-14 md:pt-4 flex flex-col md:flex-row justify-between md:items-center gap-4">
 
@@ -110,7 +108,15 @@ export default function App() {
                   }}
                   className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#EEF4FB] hover:bg-blue-100"
                 >
-                  🔔
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="#1866B4"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5S10.5 3.17 10.5 4v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+                  </svg>
                 </button>
 
                 {/* Profile */}
@@ -127,7 +133,9 @@ export default function App() {
                   />
                   <div className="hidden md:block">
                     <p className="text-xs font-bold">{adminData.name}</p>
-                    <p className="text-[12px] text-gray-400">{adminData.email}</p>
+                    <p className="text-[12px] text-gray-400">
+                      {adminData.email}
+                    </p>
                   </div>
                 </div>
 
@@ -172,7 +180,7 @@ export default function App() {
           {active === "Reported Jobs" && <JobReport />}
 
           {active === "Settings" && (
-            <Settings onTabSelect={(tab) => setActive(tab)} />
+            <Settings setActive={setActive} />
           )}
 
           {active === "Notifications" && (
@@ -192,13 +200,11 @@ export default function App() {
               adminData={adminData}
               setAdminData={setAdminData}
               onBackClick={() => setActive("Profile")}
-              onUpdateClick={() => setShowUpdatePopup(true)}
             />
           )}
 
         </div>
       </main>
-
     </div>
   );
 }
