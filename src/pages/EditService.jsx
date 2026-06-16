@@ -63,14 +63,14 @@ export default function EditService({ service, onBack }) {
       <div className="p  rounded-2xl shadow-sm">
         <div className="grid grid-cols-2 gap-8 mb-10">
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-2">Service Name</label>
+            <label className="block text-xs font-bold text-black mb-2">Service Name</label>
             <input className="w-full p-3 border border-gray-200 rounded-xl" value={serviceName} onChange={(e) => setServiceName(e.target.value)} />
           </div>
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-2">Service Commission</label>
+            <label className="block text-xs font-bold text-black mb-2">Service Commission</label>
             <div className="flex gap-2">
               <input className="w-20 p-3 border border-gray-200 rounded-xl" value={commission} onChange={(e) => setCommission(e.target.value)} />
-              <span className="self-center font-bold text-slate-600">Percent</span>
+              <span className="self-center font-normal text-black">Percent</span>
             </div>
           </div>
         </div>
@@ -80,13 +80,13 @@ export default function EditService({ service, onBack }) {
           <div key={block.id} className="mb-10 pb-6 border-b border-gray-50">
             <div className="grid grid-cols-4 gap-6 items-start">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-2">State</label>
+                <label className="block text-xs font-bold text-black mb-2">State</label>
                 <select className="w-full p-3 border border-gray-200 rounded-xl mb-2"><option>{block.state}</option></select>
                 <div className="flex flex-wrap gap-2"><span className="bg-[#1866B4] text-white text-xs px-3 py-1 rounded-full">{block.state} ×</span></div>
               </div>
               
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-2">City</label>
+                <label className="block text-xs font-bold text-black mb-2">City</label>
                 <select className="w-full p-3 border border-gray-200 rounded-xl mb-2"><option>Select city</option></select>
                 <div className="flex flex-wrap gap-2">
                   {block.cities.map(city => (<span key={city} className="bg-[#1866B4] text-white text-xs px-3 py-1 rounded-full">{city} ×</span>))}
@@ -94,12 +94,12 @@ export default function EditService({ service, onBack }) {
               </div>
               
               <div className="space-y-3">
-                <label className="block text-xs font-bold text-slate-700">Area Range (sq ft)</label>
+                <label className="block text-xs font-bold text-black">Area Range (sq ft)</label>
                 {block.ranges.map((r, i) => <input key={i} className="w-full p-3 border border-gray-200 rounded-xl" value={r.area} />)}
               </div>
               
               <div className="space-y-3">
-                <label className="block text-xs font-bold text-slate-700">Price</label>
+                <label className="block text-xs font-bold text-black">Price</label>
                 {block.ranges.map((r, i) => (
                     <div key={i} className="flex gap-2">
                         <input className="w-full p-3 border border-gray-200 rounded-xl" value={r.price} />
