@@ -104,7 +104,7 @@ export default function ReportedJobDetail({ job, onBack }) {
 
         {/* Contractor Information (Updated with details) */}
         <div className="mb-8">
-          <h3 className="text-sm font-bold text-slate-800 mb-6">Contractor Information</h3>
+         <h3 className="text-xl font-bold text-[#1e293b] mb-4">Contractor Information</h3>
           <div className="flex items-center gap-4 mb-6">
             <img src="/images/face.2.jpg" alt="Contractor" className="w-14 h-14 rounded-full object-cover" />
             <div>
