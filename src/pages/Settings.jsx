@@ -36,12 +36,23 @@ export default function Settings({ initialView = "main" }) {
       )}
 
       {subView === "main" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
-          <div onClick={() => setSubView("password")} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer hover:shadow-md transition-all text-sm font-bold text-slate-700">Change Password</div>
-          <div onClick={() => setSubView("terms")} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer hover:shadow-md transition-all text-sm font-bold text-slate-700">Terms & Conditions</div>
-          <div onClick={() => setSubView("privacy")} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer hover:shadow-md transition-all text-sm font-bold text-slate-700">Privacy Policy</div>
-          <div onClick={() => setSubView("about")} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer hover:shadow-md transition-all text-sm font-bold text-slate-700">About Us</div>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+  <div onClick={() => setSubView("password")} className="bg-white p-6 rounded-2xl shadow-md border border-gray-100 cursor-pointer hover:shadow-lg transition-all text-sm font-bold text-slate-700">
+    Change Password
+  </div>
+
+  <div onClick={() => setSubView("terms")} className="bg-white p-6 rounded-2xl shadow-md border border-gray-100 cursor-pointer hover:shadow-lg transition-all text-sm font-bold text-slate-700">
+    Terms & Conditions
+  </div>
+
+  <div onClick={() => setSubView("privacy")} className="bg-white p-6 rounded-2xl shadow-md border border-gray-100 cursor-pointer hover:shadow-lg transition-all text-sm font-bold text-slate-700">
+    Privacy Policy
+  </div>
+
+  <div onClick={() => setSubView("about")} className="bg-white p-6 rounded-2xl shadow-md border border-gray-100 cursor-pointer hover:shadow-lg transition-all text-sm font-bold text-slate-700">
+    About Us
+  </div>
+</div>
       )}
 
       {subView !== "main" && (
