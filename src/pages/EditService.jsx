@@ -103,7 +103,7 @@ export default function EditService({ service, onBack }) {
                 {block.ranges.map((r, i) => (
                     <div key={i} className="flex gap-2">
                         <input className="w-full p-3 border border-gray-200 rounded-xl" value={r.price} />
-                        <button className="bg-slate-900 text-white rounded-full w-10 h-10 flex-shrink-0">✕</button>
+                        <button className="bg-slate-900 text-white rounded-full w-6 h-6 flex-shrink-0">✕</button>
                     </div>
                 ))}
               </div>
