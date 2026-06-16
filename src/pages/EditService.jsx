@@ -46,7 +46,7 @@ export default function EditService({ service, onBack }) {
 
       {/* Header Section */}
       <div className="mb-">
-        <button onClick={onBack} className="w-10 h-10 rounded-full border border-gray-200 flex items-center bg-[#d0d3d8] justify-center mb-4 hover:bg-gray-50">←</button>
+        <button onClick={onBack} className="w-9 h-9 rounded-full border border-gray-200 flex items-center bg-[#d0d3d8] justify-center mb-4 hover:bg-gray-50">←</button>
         
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold text-slate-800">Edit {serviceName}</h2>

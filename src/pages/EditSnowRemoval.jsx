@@ -91,7 +91,7 @@ const styles = {
   contentWrapper: { flex: 1, padding: "12px 0px", fontFamily: "'Inter', sans-serif", boxSizing: "border-box" },
   // Side padding kam karke 10px kar di hai
   topNavigationRow: { marginBottom: "16px", padding: "0 10px" },
-  backCircleBtn: { width: "36px", height: "36px", borderRadius: "50%", background: "#d0d3d8", border: "1px solid #e2e8f0", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" },
+  backCircleBtn: { width: "34px", height: "34px", borderRadius: "50%", background: "#d0d3d8", border: "1px solid #e2e8f0", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" },
   pageHeaderRow: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "28px", padding: "0 10px" },
   pageTitle: { fontSize: "22px", fontWeight: "700", color: "#1e293b", margin: 0 },
   updateServiceBtn: { background: "#1e62c9", color: "#ffffff", border: "none", padding: "12px 28px", borderRadius: "8px", fontSize: "14px", fontWeight: "600", cursor: "pointer" },
